@@ -1,0 +1,8 @@
+base_locale: en
+locales: [en]
+ignore_unused:
+- "decidim.features.accountability.name"
+- "decidim.features.accountability.settings.*"
+- "decidim.resource_links.*"
+- activerecord.attributes.*
+- activemodel.attributes.*

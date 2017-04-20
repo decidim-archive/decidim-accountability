@@ -13,7 +13,7 @@ describe Decidim::Accountability::Admin::ResultForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "results" }
+  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "accountability" }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -75,7 +75,7 @@ describe Decidim::Accountability::Admin::ResultForm do
     describe "#map_model" do
       let(:result) do
         create(
-          :result,
+          :accountability_result,
           feature: current_feature,
           scope: scope,
           category: category

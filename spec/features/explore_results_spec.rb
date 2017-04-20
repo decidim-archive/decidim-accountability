@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Explore results", type: :feature do
   include_context "feature"
-  let(:manifest_name) { "results" }
+  let(:manifest_name) { "accountability" }
 
   let(:results_count) { 5 }
   let!(:scope) { create :scope, organization: organization }
   let!(:results) do
     create_list(
-      :result,
+      :accountability_result,
       results_count,
       feature: feature
     )
@@ -21,7 +21,7 @@ describe "Explore results", type: :feature do
   end
 
   context "index" do
-    let(:path) { decidim_results.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "shows all results for the given process" do
       expect(page).to have_selector("article.card", count: results_count)
@@ -33,7 +33,7 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_accountability.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
@@ -161,7 +161,7 @@ describe "Explore results", type: :feature do
 
     context "when filtering" do
       before do
-        create(:result, feature: feature, scope: scope)
+        create(:accountability_result, feature: feature, scope: scope)
         visit_feature
       end
 

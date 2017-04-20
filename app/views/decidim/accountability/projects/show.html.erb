@@ -1,0 +1,35 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(project.description),
+  title: translated_attribute(project.title),
+  url: result_project_url(project.result.id, project.id)
+}) %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute project.title %></h2>
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+              large-3 large-push-9">
+
+    <%= feature_reference(project) %>
+    <%= render partial: "decidim/shared/share_modal" %>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <p><%= t("models.project.fields.start_date", scope: "decidim.accountability") %>: <%= project.start_date %></p>
+      <p><%= t("models.project.fields.end_date", scope: "decidim.accountability") %>: <%= project.end_date %></p>
+      <p><%= t("models.project.fields.status", scope: "decidim.accountability") %>:
+         <%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %></p>
+      <p><%= t("models.project.fields.progress", scope: "decidim.accountability") %>: <%= project.progress %>% </p>
+    </div>
+    <div class="section">
+      <%== translated_attribute project.description %>
+    </div>
+  </div>
+</div>
+
+<%= comments_for project %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+

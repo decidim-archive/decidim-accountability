@@ -47,6 +47,22 @@ Decidim.register_feature(:accountability) do |feature|
         )
 
         Decidim::Comments::Seed.comments_for(result)
+
+        3.times do
+          project = Decidim::Accountability::Project.create!(
+            result: result,
+            start_date: Date.today,
+            end_date: Date.today + 10,
+            status: Decidim::Accountability::Project::VALID_STATUSES.sample,
+            progress: rand(1..100),
+            title: Decidim::Faker::Localized.sentence(2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(3)
+            end
+          )
+
+          Decidim::Comments::Seed.comments_for(project)
+        end
       end
     end
   end

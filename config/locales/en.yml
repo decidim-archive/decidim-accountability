@@ -2,6 +2,14 @@
 en:
   activemodel:
     attributes:
+      project:
+        description: Description
+        end_date: End date
+        external_id: External ID
+        progress: Progress
+        start_date: Start date
+        status: status
+        title: Title
       result:
         decidim_category_id: Category
         decidim_scope_id: Scope
@@ -19,8 +27,27 @@ en:
         title: Actions
       admin:
         models:
+          project:
+            name: Project
           result:
             name: Result
+        projects:
+          create:
+            invalid: There's been a problem creating this project
+            success: Project successfully created
+          destroy:
+            success: Project successfully deleted
+          edit:
+            title: Edit project
+            update: Update project
+          index:
+            title: "%{result_title}: Projects"
+          new:
+            create: Create project
+            title: New project
+          update:
+            invalid: There's been a problem updating this project
+            success: Project successfully updated
         results:
           create:
             invalid: There's been a problem creating this result
@@ -39,6 +66,17 @@ en:
             invalid: There's been a problem updating this result
             success: Result successfully updated
       models:
+        project:
+          fields:
+            end_date: End date
+            progress: Progress
+            start_date: Start date
+            status: Status
+            title: Title
+          valid_statuses:
+            finished: Finished
+            ongoing: Ongoing
+            planned: Planned
         result:
           fields:
             title: Title

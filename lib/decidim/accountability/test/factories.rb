@@ -23,6 +23,6 @@ FactoryGirl.define do
     start_date { Date.yesterday }
     end_date { Date.tomorrow }
     status { Decidim::Accountability::Project::VALID_STATUSES.sample }
-    progress { (1..100).to_a.sample }
+    progress { rand(1..100) }
   end
 end

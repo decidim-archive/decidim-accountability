@@ -10,4 +10,5 @@ RSpec.shared_context "admin" do
   let(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:result) { create :accountability_result, scope: scope, feature: current_feature }
+  let!(:project) { create :accountability_project, result: result }
 end

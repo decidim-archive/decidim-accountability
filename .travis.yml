@@ -7,10 +7,6 @@ services:
 
 language: ruby
 
-branches:
-  only:
-    - master
-
 env:
   global:
     - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"

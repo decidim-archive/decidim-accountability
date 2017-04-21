@@ -13,7 +13,7 @@ module Decidim
 
       routes do
         resources :results, only: [:index, :show] do
-          resources :projects, only: [:show]
+          resources :projects, only: [:show], shallow: true
         end
         root to: "results#index"
       end

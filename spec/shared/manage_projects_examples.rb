@@ -35,7 +35,7 @@ RSpec.shared_examples "manage projects" do
       end
 
       within_window @new_window do
-        expect(current_path).to eq decidim_accountability.result_project_path(id: project.id, result_id: project.result.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
+        expect(current_path).to eq decidim_accountability.project_path(id: project.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(project.title))
       end
     end

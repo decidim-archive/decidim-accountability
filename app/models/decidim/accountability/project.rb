@@ -5,8 +5,12 @@ module Decidim
     # The data store for a Result in the Decidim::Accountability component. It stores a
     # title, description and any other useful information to render a custom result.
     class Project < Accountability::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::HasFeature
       include Decidim::HasReference
       include Decidim::Comments::Commentable
+
+      feature_manifest_name "accountability"
 
       VALID_STATUSES = ["planned", "ongoing", "finished"]
 

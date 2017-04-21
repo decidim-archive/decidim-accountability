@@ -46,6 +46,7 @@
       <%== translated_attribute result.description %>
       <%= render partial: "tags", locals: { result: result } %>
     </div>
+    <%= render partial: "projects", locals: { result: result } %>
 
     <%= linked_resources_for result, :proposals, "included_proposals" %>
     <%= linked_resources_for result, :meetings, "meetings_through_proposals" %>

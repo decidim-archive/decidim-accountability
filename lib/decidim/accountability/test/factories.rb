@@ -15,4 +15,14 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     feature { build(:feature, manifest_name: "accountability") }
   end
+
+  factory :accountability_project, class: Decidim::Accountability::Project do
+    result { build :accountability_result }
+    title { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    start_date { Date.yesterday }
+    end_date { Date.tomorrow }
+    status { Decidim::Accountability::Project::VALID_STATUSES.sample }
+    progress { rand(1..100) }
+  end
 end

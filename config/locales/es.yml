@@ -1,6 +1,15 @@
+---
 es:
   activemodel:
     attributes:
+      project:
+        description: Descripción
+        end_date: Fin
+        external_id: External ID
+        progress: Progreso
+        start_date: Inicio
+        status: Estado
+        title: Título
       result:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
@@ -8,22 +17,9 @@ es:
         proposal_ids: Propuestas incluidas
         title: Título
   decidim:
-    features:
-      accountability:
-        name: Rendición de cuentas
-        settings:
-          global:
-            comments_enabled: Comentarios habilitados
-          step:
-            comments_blocked: Comentarios bloqueados
-    resource_links:
-      included_proposals:
-        result_proposals: Propuestas incluidas en este resultado
-      meetings_through_proposals:
-        result_meetings: Encuentros relacionados
     accountability:
       actions:
-        confirm_destroy: '¿Está seguro de que quiere eliminar este resultado?'
+        confirm_destroy: "¿Está seguro de que quiere eliminar este resultado?"
         destroy: Borrar
         edit: Editar
         new: Nuevo/a %{name}
@@ -31,8 +27,27 @@ es:
         title: Acciones
       admin:
         models:
+          project:
+            name: Proyecto
           result:
             name: Resultado
+        projects:
+          create:
+            invalid: Ha habido un problema al crear este proyecto
+            success: El proyecto ha sido creado correctamente
+          destroy:
+            success: El proyecto se ha eliminado correctamente
+          edit:
+            title: Editar proyecto
+            update: Actualizar proyecto
+          index:
+            title: "%{result_title}: Proyectos"
+          new:
+            create: Crear proyecto
+            title: Nuevo proyecto
+          update:
+            invalid: Ha habido un problema al actualizar este proyecto
+            success: El proyecto ha actualizado correctamente
         results:
           create:
             invalid: Ha habido un problema al crear este resultado
@@ -51,6 +66,17 @@ es:
             invalid: Ha habido un problema al actualizar este resultado
             success: El resultado ha actualizado correctamente
       models:
+        project:
+          fields:
+            end_date: Fin
+            progress: Progreso
+            start_date: Inicio
+            status: Estado
+            title: Título
+          valid_statuses:
+            finished: Terminado
+            ongoing: En curso
+            planned: Planificado
         result:
           fields:
             title: Título
@@ -77,3 +103,16 @@ es:
             meetings: Lista de encuentros
             proposals: Propuestas
             votes: Soportes
+    features:
+      accountability:
+        name: Rendición de cuentas
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
+    resource_links:
+      included_proposals:
+        result_proposals: Propuestas incluidas en este resultado
+      meetings_through_proposals:
+        result_meetings: Encuentros relacionados

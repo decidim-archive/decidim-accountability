@@ -1,6 +1,15 @@
+---
 ca:
   activemodel:
     attributes:
+      project:
+        description: Descripció
+        end_date: Fi
+        external_id: External ID
+        progress: Progrés
+        start_date: Inici
+        status: Estat
+        title: Títol
       result:
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
@@ -8,19 +17,6 @@ ca:
         proposal_ids: Propostes incloses
         title: Títol
   decidim:
-    features:
-      accountability:
-        name: Rendición de cuentas
-        settings:
-          global:
-            comments_enabled: Comentaris habilitats
-          step:
-            comments_blocked: Comentaris bloquejats
-    resource_links:
-      included_proposals:
-        result_proposals: Propostes incloses en aquest resultat
-      meetings_through_proposals:
-        result_meetings: Trobades relacionades
     accountability:
       actions:
         confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
@@ -31,8 +27,27 @@ ca:
         title: Accions
       admin:
         models:
+          project:
+            name: Projecte
           result:
             name: Resultat
+        projects:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest projecte
+            success: El projecte ha estat creat correctament
+          destroy:
+            success: El projecte ha estat eliminat correctament
+          edit:
+            title: Edita projecte
+            update: Actualitza projecte
+          index:
+            title: "%{result_title}: Projectes"
+          new:
+            create: Crea projecte
+            title: Nou projecte
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest projecte
+            success: El projecte ha estat actualitzat correctament
         results:
           create:
             invalid: Hi ha hagut un problema en crear aquest resultat
@@ -51,6 +66,17 @@ ca:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
       models:
+        project:
+          fields:
+            end_date: Fi
+            progress: Progrés
+            start_date: Inici
+            status: Estat
+            title: Títol
+          valid_statuses:
+            finished: Acabat
+            ongoing: En curs
+            planned: Planificat
         result:
           fields:
             title: Títol
@@ -77,3 +103,16 @@ ca:
             meetings: Trobades
             proposals: Propostes
             votes: Suports
+    features:
+      accountability:
+        name: Rendición de cuentas
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
+    resource_links:
+      included_proposals:
+        result_proposals: Propostes incloses en aquest resultat
+      meetings_through_proposals:
+        result_meetings: Trobades relacionades

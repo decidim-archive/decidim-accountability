@@ -7,6 +7,12 @@ module Decidim
     module ApplicationHelper
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
+
+      def display_percentage(number)
+        return unless number.present?
+
+        "#{'%.02f' % number}%"
+      end
     end
   end
 end

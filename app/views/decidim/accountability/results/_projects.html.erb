@@ -6,6 +6,11 @@
         <h5 class="card--list__heading">
           <%= translated_attribute(project.title) %>
         </h5>
+        <%= display_percentage project.progress %>
+        <%= t("models.project.fields.start_date", scope: "decidim.accountability") %>: <%= project.start_date %>
+        <%= t("models.project.fields.end_date", scope: "decidim.accountability") %>: <%= project.end_date %>
+        <%= t("models.project.fields.status", scope: "decidim.accountability") %>:
+         <%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %>
       <% end %>
     </div>
   <% end %>

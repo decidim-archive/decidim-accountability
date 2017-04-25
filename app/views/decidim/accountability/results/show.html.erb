@@ -4,6 +4,8 @@
   url: result_url(result.id)
 }) %>
 
+<%= render partial: "nav_tree", locals: { category: result.try(:category), result: result} %>
+
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute result.title %></h2>
 </div>

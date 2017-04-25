@@ -62,7 +62,7 @@ RSpec.shared_examples "manage projects" do
 
       page.execute_script("$('#project_start_date').val('20/04/2017')")
       page.execute_script("$('#project_end_date').val('20/04/2017')")
-      select "ongoing", from: :project_status
+      select "Ongoing", from: :project_status
       fill_in :project_progress, with: 89
       fill_in :project_external_id, with: "ID_in_other_system"
 

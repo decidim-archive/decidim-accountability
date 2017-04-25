@@ -23,6 +23,12 @@ module Decidim
       validates :progress, presence: true, numericality: true
       validates :status, presence: true, inclusion: { in: VALID_STATUSES }
 
+      after_commit :update_parent_progress
+
+      def update_parent_progress
+        result.update_progress!
+      end
+
       def parent_category
         category.try(:parent)
       end

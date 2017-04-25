@@ -1,0 +1,18 @@
+<%= link_to t(".global"), decidim_accountability.root_path %>
+<%= display_percentage progress_calculator(current_scope, nil) %>
+<br/>
+<% if category.present? && category.parent.present? %>
+  <%= link_to translated_attribute(category.parent.name), decidim_accountability.results_path(filter: { category_id: category.parent_id }) %>
+  <%= display_percentage progress_calculator(current_scope, category.parent_id) %>
+<% end %>
+<br/>
+<% if category.present? %>
+  <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
+  <%= display_percentage progress_calculator(current_scope, category.id) %>
+<% end %>
+<br/>
+<% if result.present? %>
+  <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
+  <%= display_percentage result.progress %>
+<% end %>
+<br/>

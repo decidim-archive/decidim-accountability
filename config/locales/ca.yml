@@ -86,15 +86,13 @@ ca:
             one: 1 resultat
             other: "%{count} resultats"
         filters:
-          category: Categoria
-          category_prompt: Selecciona una categoria
+          all: Tots
+          global: Global
           scopes: Àmbits
+        nav_tree:
+          global: Ejecució global
+        search:
           search: Cerca
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         show:
           stats:
             attendees: Assistents

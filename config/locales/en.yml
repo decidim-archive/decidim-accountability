@@ -86,15 +86,13 @@ en:
             one: 1 result
             other: "%{count} results"
         filters:
-          category: Category
-          category_prompt: Select a category
+          all: All
+          global: Global
           scopes: Scopes
+        nav_tree:
+          global: Global execution
+        search:
           search: Search
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         show:
           stats:
             attendees: Attendees

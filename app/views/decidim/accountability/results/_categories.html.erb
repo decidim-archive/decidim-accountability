@@ -1,0 +1,16 @@
+<ul>
+  <% first_class_categories.each do |category| %>
+    <li>
+      <%= translated_attribute(category.name) %>
+      <%= display_percentage progress_calculator(current_scope, category.id) %>
+    </li>
+    <ul>
+      <% category.subcategories.each do |subcategory| %>
+        <li>
+          <%= link_to translated_attribute(subcategory.name), results_path(filter: { category_id: subcategory, scope_id: current_scope }) %>
+          <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>

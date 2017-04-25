@@ -6,7 +6,10 @@ module Decidim
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
 
-      helper_method :results, :result, :stats_calculator
+      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :current_scope
+
+      def home
+      end
 
       private
 
@@ -36,6 +39,24 @@ module Decidim
 
       def context_params
         { feature: current_feature, organization: current_organization }
+      end
+
+      def first_class_categories
+        first_class_categories = current_participatory_process.categories.first_class
+      end
+
+      def category
+        if params[:filter] && params[:filter][:category_id].present?
+          current_participatory_process.categories.find(params[:filter][:category_id])
+        end
+      end
+
+      def progress_calculator(scope_id, category_id)
+        Decidim::Accountability::ProgressCalculator.new(current_feature, scope_id, category_id).progress
+      end
+
+      def current_scope
+        params[:filter][:scope_id] if params[:filter]
       end
     end
   end

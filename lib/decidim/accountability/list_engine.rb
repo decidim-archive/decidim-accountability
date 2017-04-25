@@ -15,7 +15,7 @@ module Decidim
         resources :results, only: [:index, :show] do
           resources :projects, only: [:show], shallow: true
         end
-        root to: "results#index"
+        root to: "results#home"
       end
     end
   end

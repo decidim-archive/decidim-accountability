@@ -86,15 +86,13 @@ es:
             one: 1 resultado
             other: "%{count} resultados"
         filters:
-          category: Categoría
-          category_prompt: Selecciona una categoría
+          all: Todos
+          global: Global
           scopes: Ámbitos
+        nav_tree:
+          global: Ejecución global
+        search:
           search: Buscar
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         show:
           stats:
             attendees: Asistentes

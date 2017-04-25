@@ -10,6 +10,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
+        attribute :progress, Float
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]

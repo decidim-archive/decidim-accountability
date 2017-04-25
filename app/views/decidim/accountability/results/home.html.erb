@@ -1,0 +1,24 @@
+<div class="row">
+  <div id="header">
+    <%= render partial: "header" %>
+  </div>
+
+  <div class="filters">
+    <% if current_organization.scopes.any? && !current_participatory_process.scope %>
+      <%= t('results.filters.scopes', scope: "decidim.accountability") %>
+
+      <ul>
+        <li><%= link_to t("results.filters.all", scope: "decidim.accountability"), decidim_accountability.root_url %></li>
+        <li><%= link_to t("results.filters.global", scope: "decidim.accountability"), decidim_accountability.root_url(filter: { scope_id: "global" }) %></li>
+
+        <% current_organization.scopes.each do |scope| %>
+          <li><%= link_to scope.name, decidim_accountability.root_url(filter: { scope_id: scope.id }) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div id="categories">
+    <%= render partial: "categories" %>
+  </div>
+</div>

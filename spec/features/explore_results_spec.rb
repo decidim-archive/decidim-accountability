@@ -20,11 +20,21 @@ describe "Explore results", type: :feature do
     visit path
   end
 
+  context "home" do
+    let(:path) { decidim_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+
+    it "shows all categories and subcatefgories" do
+      participatory_process.categories.each do |category|
+        expect(page).to have_content(translated category.name)
+      end
+    end
+  end
+
   context "index" do
     let(:path) { decidim_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
-    it "shows all results for the given process" do
-      expect(page).to have_selector("article.card", count: results_count)
+    it "shows all results for the given process and category" do
+      expect(page).to have_selector(".card--list__item", count: results_count)
 
       results.each do |result|
         expect(page).to have_content(translated result.title)
@@ -74,6 +84,8 @@ describe "Explore results", type: :feature do
       end
 
       it "links to the filter for this category" do
+        skip
+
         within "ul.tags.tags--result" do
           click_link translated(result.category.name)
         end
@@ -94,13 +106,6 @@ describe "Explore results", type: :feature do
         within "ul.tags.tags--result" do
           expect(page).to have_content(result.scope.name)
         end
-      end
-
-      it "links to the filter for this scope" do
-        within "ul.tags.tags--result" do
-          click_link result.scope.name
-        end
-        expect(page).to have_checked_field(result.scope.name)
       end
     end
 
@@ -140,7 +145,7 @@ describe "Explore results", type: :feature do
       end
     end
 
-    context "with linked proposals" do
+    context "with linked meetings" do
       let(:meeting_feature) do
         create(:feature, manifest_name: :meetings, participatory_process: result.feature.participatory_process)
       end
@@ -188,26 +193,6 @@ describe "Explore results", type: :feature do
           within ".filters" do
             expect(page).to have_content(/Scopes/i)
           end
-        end
-      end
-
-      context "by origin 'official'" do
-        it "lists the filtered results" do
-          within ".filters" do
-            check scope.name
-          end
-
-          expect(page).to have_css(".card--result", count: 1)
-        end
-      end
-
-      context "by origin 'citizenship'" do
-        it "lists the filtered results" do
-          within ".filters" do
-            check scope.name
-          end
-
-          expect(page).to have_css(".card--result", count: results.size)
         end
       end
     end

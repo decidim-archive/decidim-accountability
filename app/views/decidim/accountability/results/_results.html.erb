@@ -1,15 +1,12 @@
-<div class="row small-up-1 medium-up-2 card-grid">
+<div class="card card--action card--list">
   <% results.each do |result| %>
-    <div class="column">
-      <article class="card card--result">
-        <div class="card__content">
-          <%= link_to result, class: "card__link" do %>
-            <h5 class="card__title"><%= translated_attribute result.title %></h5>
-          <% end %>
-          <%== translated_attribute result.description %>
-          <%= render partial: "tags", locals: { result: result } %>
-        </div>
-      </article>
+    <div class="card--list__item">
+      <%= link_to result, class: "card--list__text card__link card__link--block" do %>
+        <h5 class="card--list__heading">
+          <%= translated_attribute result.title %>
+          <%= display_percentage result.progress %>
+        </h5>
+      <% end %>
     </div>
   <% end %>
 </div>

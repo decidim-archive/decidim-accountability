@@ -14,7 +14,12 @@ module Decidim
 
       feature_manifest_name "accountability"
 
-      has_many :projects, foreign_key: "decidim_accountability_result_id", class_name: Decidim::Accountability::Project, inverse_of: :result
+      has_many :projects, foreign_key: "decidim_accountability_result_id", class_name: Decidim::Accountability::Project, inverse_of: :result, dependent: :destroy
+
+      def update_progress!
+        self.progress = projects.average(:progress)
+        self.save!
+      end
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?

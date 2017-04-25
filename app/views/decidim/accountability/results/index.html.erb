@@ -1,19 +1,32 @@
+<%= render partial: "nav_tree", locals: { category: category, result: nil} %>
+
+<div class="row filters">
+  <div class="columns">
+    <% if current_organization.scopes.any? && !current_participatory_process.scope %>
+      <%= t('results.filters.scopes', scope: "decidim.accountability") %>
+
+      <ul>
+        <li><%= link_to t("results.filters.all", scope: "decidim.accountability"), decidim_accountability.results_url(filter: { category_id: category.try(:id) }) %></li>
+        <li><%= link_to t("results.filters.global", scope: "decidim.accountability"), decidim_accountability.results_url(filter: { scope_id: "global", category_id: category.try(:id) }) %></li>
+
+        <% current_organization.scopes.each do |scope| %>
+          <li><%= link_to scope.name, decidim_accountability.results_url(filter: { scope_id: scope.id, category_id: category.try(:id) }) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
 <div class="row columns">
   <div class="title-action">
-    <h2 id="proposals-count" class="title-action__title section-heading">
+    <h2 id="results-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
   </div>
 </div>
 
 <div class="row">
-  <div class="columns mediumlarge-4 large-3">
-    <%= render partial: "filters_small_view"%>
-    <div class="card card--secondary show-for-mediumlarge" >
-      <%= render partial: "filters" %>
-    </div>
-  </div>
-  <div id="results" class="columns mediumlarge-8 large-9">
+  <div id="results" class="columns">
     <%= render partial: "results" %>
   </div>
 </div>

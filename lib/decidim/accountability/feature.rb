@@ -6,6 +6,7 @@ Decidim.register_feature(:accountability) do |feature|
   feature.engine = Decidim::Accountability::ListEngine
   feature.admin_engine = Decidim::Accountability::AdminEngine
   feature.icon = "decidim/accountability/icon.svg"
+  feature.stylesheet = "decidim/accountability/accountability"
 
   feature.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Accountability::Result.where(feature: instance).any?

@@ -18,6 +18,11 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
+
+        validates :start_date, presence: true
+        validates :end_date, presence: true
+        validates :progress, presence: true
+        validates :status, presence: true
       end
     end
   end

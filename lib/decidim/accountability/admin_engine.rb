@@ -2,9 +2,9 @@
 
 module Decidim
   module Accountability
-    # This is the engine that runs on the public interface of `decidim-accountability`.
-    # It mostly handles rendering the created reuslts associated to a participatory
-    # process.
+    # This is the engine that runs on the admin interface of `decidim-accountability`.
+    # It mostly handles rendering the created results and projects associated to a
+    # participatory process.
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Accountability::Admin
 

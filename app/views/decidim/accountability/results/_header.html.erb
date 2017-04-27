@@ -1,6 +1,29 @@
+<div class="intro section">
+  <div class="row">
+    <div class="small-12 medium-8 columns">
+      <p>Te contamos el progreso en la ejecución del Plan de Actuación Municipal. Publicamos el estado de cada proyecto del Plan y la cifra global de desarrollo, haciendo transparente la gestión además de los compromisos que emergieron del proceso participativo.</p>
+      
+      <ul class="list-inline list-reset">
+        <li><a href="#">Acerca del PAM</a></li> ·
+        <li><a href="#">Preguntas frecuentes</a></li> ·
+        <li><a href="#">Más sobre rendición de cuentas</a></li>
+      </ul>
+    </div>
+    
+    <div class="small-12 medium-4 columns">
+      <div class="progress-level">
+        <p>Estado de ejecución global</p>
+        <%= icon("info", class: "icon", aria_label: "Afegir", role: "img") %>
+        
+        <div class="progress">
+          <div class="progress-meter" style="width:<%= display_percentage progress_calculator(current_scope, nil) %>"></div>
+        </div>
+        
+        <div class="progress-figure">
+          <%= display_percentage progress_calculator(current_scope, nil) %>
+        </div>
+      </div>
+    </div>
 
-<p>Te contamos el progreso del Plan de Actuación Municipal ...</p>
-
-<div>
-  Progreso: <%= display_percentage progress_calculator(current_scope, nil) %>
+  </div>
 </div>

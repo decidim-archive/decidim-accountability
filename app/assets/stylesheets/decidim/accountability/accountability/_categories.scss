@@ -1,0 +1,49 @@
+.accountability {
+  .categories {
+    .categories--header {
+      border-bottom: 1px solid $medium-gray;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      
+      .icon {
+        fill: lighten($dark-gray, 50);
+      }
+      
+      span {
+        text-transform: uppercase;
+        font-size: 1.15rem;
+        color: lighten($dark-gray, 50);
+      }
+    }
+    
+    .categories--group {
+      margin-bottom: 2rem;
+      
+      .category--title {
+        background: $white;
+        padding: 1rem 2rem;
+        
+        p {
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+        .progress {
+          margin-bottom: 0.5rem;
+        }
+      }
+      
+      .category--line {
+        background: $light-gray-dark;
+        border-radius: 4px;
+        min-height: 8rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    .progress-figure {
+      font-size: 1.5rem;
+      color: lighten($dark-gray, 50);
+    }
+  }
+}

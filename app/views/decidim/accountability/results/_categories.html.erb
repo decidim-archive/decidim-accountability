@@ -1,16 +1,68 @@
-<ul>
-  <% first_class_categories.each do |category| %>
-    <li>
-      <%= translated_attribute(category.name) %>
-      <%= display_percentage progress_calculator(current_scope, category.id) %>
-    </li>
-    <ul>
-      <% category.subcategories.each do |subcategory| %>
-        <li>
-          <%= link_to translated_attribute(subcategory.name), results_path(filter: { category_id: subcategory, scope_id: current_scope }) %>
-          <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
+<div class="categories section">
+  <div class="categories--header">
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <%= icon("arrow-bottom", class: "icon", aria_label: "Ejes", role: "img") %>
+        <span>Ejes</span>
+      </div>
+      <div class="show-for-medium small-12 medium-8 columns">
+        <%= icon("arrow-bottom", class: "icon", aria_label: "Líneas", role: "img") %>
+        <span>Líneas</span>
+        
+        <div class="float-right">
+          <form class="filters__search">
+            <div class="input-group">
+              <input class="input-group-field" placeholder="Buscar actuaciones" type="search">
+              <div class="input-group-button">
+                <button type="submit" class="button button--muted">
+                  <%= icon("magnifying-glass", class: "icon", aria_label: "Buscar actuaciones", role: "img") %>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="categories--list">
+    <div class="row">
+      <div class="small-12 columns">
+        <% first_class_categories.each do |category| %>
+          <div class="categories--group row">
+            <div class="small-12 medium-4 columns">
+              <div class="category--title">
+                <p class="heading3"><%= translated_attribute(category.name) %></p>
+                
+                <div class="progress">
+                  <div class="progress-meter" style="width:<%= display_percentage progress_calculator(current_scope, category.id) %>"></div>
+                </div>
+                
+                <div class="progress-figure">
+                  <%= display_percentage progress_calculator(current_scope, category.id) %>
+                </div>
+              </div>
+            </div>
+            
+            <div class="category--elements show-for-medium medium-8 columns">
+              <div class="row">
+                <% category.subcategories.each do |subcategory| %>
+                  <div class="small-4 columns end">
+                    <div class="category--line">
+                      <%= link_to translated_attribute(subcategory.name), results_path(filter: { category_id: subcategory, scope_id: current_scope }) %>
+                      
+                      <div class="progress-figure">
+                        <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
+                      </div>  
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

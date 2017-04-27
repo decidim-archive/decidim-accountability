@@ -1,0 +1,44 @@
+.accountability {
+  .intro {
+    ul {
+      margin-bottom: 1rem;
+    }
+    .progress-level {
+      background: $white;
+      padding: 1rem 1.75rem;
+      
+      p {
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+
+      .icon {
+        background: lighten($dark-gray, 50);
+        border-radius: 50%;
+        fill: white;
+        padding: 0.15rem;
+      }
+      
+      .progress {
+        margin-bottom: 0;
+      }
+
+      .progress-figure {
+        font-size: 2.5rem;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .location-filters {
+    span {
+      margin-right: 0.5rem;
+    }
+    ul {
+      display: inline;
+    }
+  }
+}

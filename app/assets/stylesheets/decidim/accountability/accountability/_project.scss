@@ -1,0 +1,61 @@
+.project-view {
+  .title {
+    margin-bottom: 1rem;
+    
+    .icon {
+      fill: $secondary;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0.25rem;
+    }
+    
+    h2 {
+      display: inline-block;
+    }
+  }
+  
+  .progress-level {
+    background: $white;
+    border-radius: 4px;
+    padding: 1.5rem;
+    border: 1px solid $medium-gray;
+    
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 0.5rem;
+      
+      .progress-text {
+        text-transform: uppercase;
+        color: lighten($dark-gray, 30);
+      }
+      .progress-figure {
+        line-height: 1;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .project-meta {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    
+    .project-meta--label {
+      display: inline-block;
+      width: 50%;
+      font-weight: 600;
+      color: lighten($dark-gray, 30);
+    }
+    .project-meta--data {
+      display: inline-block;
+      width: 45%;
+    }
+  }
+  
+  hr {
+    width: 100%;
+    margin: 0 0 3rem 0;
+  }
+}

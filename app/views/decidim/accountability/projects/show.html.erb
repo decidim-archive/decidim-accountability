@@ -4,29 +4,60 @@
   url: project_url(project.id)
 }) %>
 
-<%= render partial: "decidim/accountability/results/nav_tree", locals: { category: result.category, result: result} %>
-
-<div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute project.title %></h2>
-</div>
-<div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-              large-3 large-push-9">
-
-    <%= feature_reference(project) %>
-    <%= render partial: "decidim/shared/share_modal" %>
+<div class="row accountability project-view">
+  <div class="small-12 medium-3 columns">
+    <%= render partial: "decidim/accountability/results/nav_tree", locals: { category: result.category, result: result} %>
   </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <p><%= t("models.project.fields.start_date", scope: "decidim.accountability") %>: <%= project.start_date %></p>
-      <p><%= t("models.project.fields.end_date", scope: "decidim.accountability") %>: <%= project.end_date %></p>
-      <p><%= t("models.project.fields.status", scope: "decidim.accountability") %>:
-         <%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %></p>
-      <p><%= t("models.project.fields.progress", scope: "decidim.accountability") %>: <%= project.progress %>% </p>
+  <div class="small-12 medium-9 columns">
+    <div class="title">
+      <%= icon("proposals", class: "icon", aria_label: "Títol", role: "img") %>
+      <h2 class="heading2"><%= translated_attribute project.title %></h2>
     </div>
-    <div class="section">
-      <%== translated_attribute project.description %>
+    
+    <div class="row">
+      <div class="columns section mediumlarge-5 mediumlarge-push-7 end">
+        <div class="progress-level">
+          <div class="progress-label">
+            <span class="progress-text">Progreso:</span>
+            <span class="progress-figure">
+              <%= display_percentage progress_calculator(current_scope, nil) %>
+            </span>
+          </div>
+
+          <div class="progress">
+            <div class="progress-meter" style="width:<%= display_percentage progress_calculator(current_scope, nil) %>"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="columns mediumlarge-3 mediumlarge-pull-5 end">
+        <div class="section">
+          <div class="project-meta">
+            <div class="project-meta--label"><%= t("models.project.fields.start_date", scope: "decidim.accountability") %></div>
+            <div class="project-meta--data"><%= project.start_date %></div>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-meta--label"><%= t("models.project.fields.end_date", scope: "decidim.accountability") %></div>
+            <div class="project-meta--data"><%= project.end_date %></div>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-meta--label"><%= t("models.project.fields.status", scope: "decidim.accountability") %></div>
+            <div class="project-meta--data"><%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="small-12 columns">
+        <hr>
+        
+        <div class="section">
+          <%== translated_attribute project.description %>
+        </div>
+      </div>
     </div>
+    
   </div>
 </div>
 
@@ -34,4 +65,3 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
-

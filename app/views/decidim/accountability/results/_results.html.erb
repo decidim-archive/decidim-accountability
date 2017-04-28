@@ -1,26 +1,18 @@
 <div class="card card--action card--list">
   <% results.each do |result| %>
     <div class="card--list__item">
-      <div class="card--list__icon">
-        <%= icon("proposals", class: "icon", aria_label: "Actuació", role: "img") %>
-      </div>
+      <%= icon "proposals", class: "card--list__icon", remove_icon_class: true %>
       
-      <div class="card--list__text">
-        <%= link_to result, class: "card__link card__link--block" do %>
-          <h5 class="card--list__heading">
-            <%= translated_attribute result.title %>
-          </h5>
-        <% end %>
+      <%= link_to result, class: "card--list__text card__link card__link--block" do %>
+        <h5 class="card--list__heading">
+          <%= translated_attribute result.title %>
+        </h5>
         
-        <div class="card--list__projects">
-          <strong><%= result.projects.count %></strong> proyectos
-        </div>
-      </div>
+        <span class="text-small"><strong><%= result.projects.count %></strong> proyectos</span>
+      <% end %>
       
-      <div class="card--list__progress">
-        <div>
-          <%= display_percentage result.progress %>
-        </div>
+      <div class="card--list__data">
+        <span class="card--list__data__number"><%= display_percentage result.progress %></span>
       </div>
     </div>
   <% end %>

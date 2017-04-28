@@ -1,3 +1,51 @@
 .accountability {
+  .card--list__item {
+    display: block;
+    padding: 0;
+    
+    @include breakpoint(medium) {
+      padding-left: 1rem;
+      display: flex;
+    }
+  }
+  .card--list__icon {
+    width: 5%;
+    
+    .icon {
+      height: 100%;
+      width: 100%;
+      fill: $secondary;
+    }
+  }
   
+  .card--list__text {
+    display: block;
+    padding: 1rem;
+    
+    @include breakpoint(medium) {
+      padding: 1rem 1rem 1rem 0;
+      width: 75%;
+    }
+    
+    .card--list__projects {
+      color: darken($light-gray, 40);
+    }
+  }
+  
+  .card--list__progress {
+    align-self: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $light-gray;
+    font-size: 1.25rem;
+
+    @include breakpoint(medium) {
+      width: 15%;
+    }
+    
+    div {
+      padding: 0.5rem;
+    }
+  }
 }

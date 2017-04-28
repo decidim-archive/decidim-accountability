@@ -1,13 +1,29 @@
 <div class="card card--action card--list">
   <% results.each do |result| %>
     <div class="card--list__item">
-      <%= link_to result, class: "card--list__text card__link card__link--block" do %>
-        <h5 class="card--list__heading">
-          <%= translated_attribute result.title %>
+      <div class="card--list__icon">
+        <%= icon("proposals", class: "icon", aria_label: "Actuació", role: "img") %>
+      </div>
+      
+      <div class="card--list__text">
+        <%= link_to result, class: "card__link card__link--block" do %>
+          <h5 class="card--list__heading">
+            <%= translated_attribute result.title %>
+          </h5>
+        <% end %>
+        
+        <div class="card--list__projects">
+          <strong><%= result.projects.count %></strong> proyectos
+        </div>
+      </div>
+      
+      <div class="card--list__progress">
+        <div>
           <%= display_percentage result.progress %>
-        </h5>
-      <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
+
 <%= decidim_paginate results, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>

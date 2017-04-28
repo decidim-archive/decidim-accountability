@@ -20,6 +20,17 @@ And then execute:
 $ bundle
 ```
 
+## Test setup
+First, clone [decidim-barcelona](https://github.com/PopulateTools/decidim-barcelona). Afterwards, come back to the `decidim-accountability` folder and run the following commands:
+
+- `bundle install`
+- `bundle exec rake`
+- `cd spec/decidim-accountability_dummy_app  && bundle exec rake db:setup`
+- `cp ../../../decidim-barcelona/lib/tasks/test_data.rake lib/tasks/ && cp ../../../decidim-barcelona/action_plans.csv .`
+- `bundle exec rake test_data:load`
+
+Now you should be able to start a local server with `bundle exec rails s`.
+
 ## Contributing
 See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 

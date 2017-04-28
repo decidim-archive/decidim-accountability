@@ -1,33 +1,24 @@
-<%= render partial: "nav_tree", locals: { category: category, result: nil} %>
-
-<div class="row filters">
-  <div class="columns">
-    <% if current_organization.scopes.any? && !current_participatory_process.scope %>
-      <%= t('results.filters.scopes', scope: "decidim.accountability") %>
-
-      <ul>
-        <li><%= link_to t("results.filters.all", scope: "decidim.accountability"), decidim_accountability.results_url(filter: { category_id: category.try(:id) }) %></li>
-        <li><%= link_to t("results.filters.global", scope: "decidim.accountability"), decidim_accountability.results_url(filter: { scope_id: "global", category_id: category.try(:id) }) %></li>
-
-        <% current_organization.scopes.each do |scope| %>
-          <li><%= link_to scope.name, decidim_accountability.results_url(filter: { scope_id: scope.id, category_id: category.try(:id) }) %></li>
-        <% end %>
-      </ul>
-    <% end %>
+<div class="row accountability">
+  <div class="small-12 columns">
+    <%= render partial: "location_filters" %>         
   </div>
-</div>
-
-<div class="row columns">
-  <div class="title-action">
-    <h2 id="results-count" class="title-action__title section-heading">
-      <%= render partial: "count" %>
-    </h2>
+  
+  <div class="small-3 columns">            
+    <%= render partial: "nav_tree", locals: { category: category, result: nil} %>
   </div>
-</div>
+  
+  <div class="small-9 columns">
+    <div class="title-action">
+      <h2 id="results-count" class="title-action__title section-heading">
+        <%= render partial: "count" %>
+      </h2>
+    </div>
 
-<div class="row">
-  <div id="results" class="columns">
-    <%= render partial: "results" %>
+    <div class="row">
+      <div id="results" class="columns">
+        <%= render partial: "results" %>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -1,0 +1,47 @@
+.lines-nav {
+  a {
+    font-weight: 600;
+    color: $dark-gray;
+  }
+  
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  
+  svg {
+    margin-right: 0.15rem;
+  }
+  
+  .global-percentage {
+    margin-bottom: 0.75rem;
+  }
+  
+  .percentage {
+    color: darken($light-gray, 40);
+    font-weight: 400;
+  }
+
+  .list {
+    margin: 0;
+    background: $white;
+    
+    li {
+      min-height: 3rem;
+      padding: 0.5rem 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid darken($light-gray, 10);
+    }
+    
+    .list--first_level {
+      li {
+        padding-left: 1.5rem;
+      }
+    }
+    .list--second_level {
+      li {
+        padding-left: 2rem;
+      }
+    }
+  }
+}

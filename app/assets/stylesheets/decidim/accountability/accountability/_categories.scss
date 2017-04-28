@@ -19,14 +19,24 @@
     .categories--group {
       margin-bottom: 2rem;
       
+      @include breakpoint(medium) {
+        display: flex;
+        margin-bottom: 4rem;
+      }
+      
       .category--title {
         background: $white;
-        padding: 1rem 2rem;
+        padding: 1.5rem 2rem;
+        
+        @include breakpoint(medium) {
+          height: calc(100% - 1rem);
+        }
         
         p {
           font-weight: 600;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
         }
+
         .progress {
           margin-bottom: 0.5rem;
         }
@@ -35,9 +45,19 @@
       .category--line {
         background: $light-gray-dark;
         border-radius: 4px;
-        min-height: 8rem;
+        min-height: 7.5rem;
         padding: 1rem;
         margin-bottom: 1rem;
+        position: relative;
+        
+        a {
+          color: $dark-gray;
+        }
+        
+        .progress-figure {
+          position: absolute;
+          bottom: 1rem;
+        }
       }
     }
     

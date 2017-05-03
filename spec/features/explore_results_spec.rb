@@ -177,7 +177,7 @@ describe "Explore results", type: :feature do
         end
 
         it "enables filtering by scope" do
-          within ".filters" do
+          within ".scope-filters" do
             expect(page).not_to have_content(/Scopes/i)
           end
         end
@@ -190,7 +190,7 @@ describe "Explore results", type: :feature do
         end
 
         it "enables filtering by scope" do
-          within ".filters" do
+          within ".scope-filters" do
             expect(page).to have_content(/Scopes/i)
           end
         end

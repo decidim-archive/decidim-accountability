@@ -10,6 +10,12 @@ FactoryGirl.define do
     participatory_process { create(:participatory_process, :with_steps) }
   end
 
+  factory :accountability_status, class: Decidim::Accountability::Status do
+    sequence(:key) { |n| "status_#{n}" }
+    name { Decidim::Faker::Localized.word }
+    feature { build(:feature, manifest_name: "accountability") }
+  end
+
   factory :accountability_result, class: Decidim::Accountability::Result do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
@@ -17,12 +23,12 @@ FactoryGirl.define do
   end
 
   factory :accountability_project, class: Decidim::Accountability::Project do
-    result { build :accountability_result }
+    result { create :accountability_result }
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date { Date.yesterday }
     end_date { Date.tomorrow }
-    status { Decidim::Accountability::Project::VALID_STATUSES.sample }
+    status { create :accountability_status, feature: result.feature }
     progress { rand(1..100) }
   end
 end

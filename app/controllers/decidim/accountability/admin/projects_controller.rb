@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage results from a Participatory Process
       class ProjectsController < Admin::ApplicationController
-        helper_method :projects, :result
+        helper_method :projects, :result, :statuses
 
         def new
           @form = form(ProjectForm).instance
@@ -67,6 +67,10 @@ module Decidim
 
         def project
           @project ||= projects.find(params[:id])
+        end
+
+        def statuses
+          @statuses ||= Status.where(feature: current_feature)
         end
       end
     end

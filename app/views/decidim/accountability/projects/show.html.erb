@@ -44,7 +44,7 @@
 
           <div class="project-meta">
             <div class="project-meta--label"><%= t("models.project.fields.status", scope: "decidim.accountability") %></div>
-            <div class="project-meta--data"><%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %></div>
+            <div class="project-meta--data"><%= translated_attribute(project.status.name) %></div>
           </div>
         </div>
       </div>

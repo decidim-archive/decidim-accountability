@@ -34,7 +34,7 @@ module Decidim
             description: @form.description,
             start_date: @form.start_date,
             end_date: @form.end_date,
-            status: @form.status,
+            decidim_accountability_status_id: @form.decidim_accountability_status_id,
             progress: @form.progress
           )
         end

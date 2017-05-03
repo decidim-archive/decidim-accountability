@@ -11,6 +11,7 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
+        resources :statuses
         resources :results do
           resources :projects
         end

@@ -12,16 +12,15 @@ module Decidim
 
       feature_manifest_name "accountability"
 
-      VALID_STATUSES = ["planned", "ongoing", "finished"]
-
       belongs_to :result, foreign_key: "decidim_accountability_result_id", class_name: Decidim::Accountability::Result, inverse_of: :projects
+      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: Decidim::Accountability::Status, inverse_of: :projects
 
       delegate :feature, :organization, :category, to: :result
 
       validates :start_date, presence: true
       validates :end_date, presence: true
       validates :progress, presence: true, numericality: true
-      validates :status, presence: true, inclusion: { in: VALID_STATUSES }
+      validates :decidim_accountability_status_id, presence: true
 
       after_commit :update_parent_progress
 

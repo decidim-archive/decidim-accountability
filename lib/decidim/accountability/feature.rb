@@ -41,6 +41,13 @@ Decidim.register_feature(:accountability) do |feature|
         participatory_process: process
       )
 
+      5.times do
+        Decidim::Accountability::Status.create!(
+          feature: feature,
+          name: Decidim::Faker::Localized.word
+        )
+      end
+
       3.times do
         result = Decidim::Accountability::Result.create!(
           feature: feature,
@@ -59,7 +66,7 @@ Decidim.register_feature(:accountability) do |feature|
             result: result,
             start_date: Date.today,
             end_date: Date.today + 10,
-            status: Decidim::Accountability::Project::VALID_STATUSES.sample,
+            status: Decidim::Accountability::Status.all.sample,
             progress: rand(1..100),
             title: Decidim::Faker::Localized.sentence(2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

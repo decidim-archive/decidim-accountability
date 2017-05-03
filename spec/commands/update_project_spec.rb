@@ -12,18 +12,18 @@ describe Decidim::Accountability::Admin::UpdateProject do
 
   let(:start_date) { Date.yesterday }
   let(:end_date) { Date.tomorrow }
-  let(:status) { "finished" }
+  let(:status) { create :accountability_status, feature: result.feature, key: "finished", name: { en: "Finished" } }
   let(:progress) { 95 }
   let(:external_id) { "ID_in_other_system" }
 
   let(:form) do
     double(
       :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
+      title: { en: "title" },
+      description: { en: "description" },
       start_date: start_date,
       end_date: end_date,
-      status: status,
+      decidim_accountability_status_id: status.id,
       progress: progress,
       external_id: external_id
     )
@@ -43,8 +43,8 @@ describe Decidim::Accountability::Admin::UpdateProject do
   context "when everything is ok" do
     it "updates the project" do
       subject.call
-      expect(translated(project.title)).to eq "title"
-      expect(project.status).to eq "finished"
+      expect(translated project.title).to eq "title"
+      expect(translated project.status.name).to eq "Finished"
       expect(project.progress).to eq 95
     end
   end

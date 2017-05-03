@@ -36,11 +36,6 @@ module Decidim
         subject.status = nil
         expect(subject).to be_invalid
       end
-
-      it "is invalid when status is not in the list of valid values" do
-        subject.status = "invalid_value"
-        expect(subject).to be_invalid
-      end
     end
   end
 end

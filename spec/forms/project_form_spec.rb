@@ -25,7 +25,7 @@ describe Decidim::Accountability::Admin::ProjectForm do
   end
   let(:start_date) { Date.yesterday }
   let(:end_date) { Date.tomorrow }
-  let(:status) { "ongoing" }
+  let(:status) { create :accountability_status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
   let(:progress) { 89 }
   let(:external_id) { "ID_in_other_system" }
 
@@ -35,7 +35,7 @@ describe Decidim::Accountability::Admin::ProjectForm do
       description_en: description[:en],
       start_date: start_date,
       end_date: end_date,
-      status: status,
+      decidim_accountability_status_id: status.id,
       progress: progress,
       external_id: external_id
     }

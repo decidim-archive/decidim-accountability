@@ -12,7 +12,7 @@ module Decidim
         translatable_attribute :description, String
         attribute :start_date, Date
         attribute :end_date, Date
-        attribute :status, String
+        attribute :decidim_accountability_status_id, Integer
         attribute :progress, Integer
         attribute :external_id, String
 
@@ -22,7 +22,7 @@ module Decidim
         validates :start_date, presence: true
         validates :end_date, presence: true
         validates :progress, presence: true
-        validates :status, presence: true
+        validates :decidim_accountability_status_id, presence: true
       end
     end
   end

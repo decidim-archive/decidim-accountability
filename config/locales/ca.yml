@@ -16,6 +16,9 @@ ca:
         description: Descripció
         proposal_ids: Propostes incloses
         title: Títol
+      status:
+        key: Key
+        name: Nom
   decidim:
     accountability:
       actions:
@@ -31,6 +34,8 @@ ca:
             name: Projecte
           result:
             name: Resultat
+          status:
+            name: Estat
         projects:
           create:
             invalid: Hi ha hagut un problema en crear aquest projecte
@@ -65,6 +70,27 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
+        shared:
+          subnav:
+            results: Resultats
+            statuses: Estats
+        statuses:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest estat
+            success: El estat ha estat creat correctament
+          destroy:
+            success: El estat ha estat eliminat correctament
+          edit:
+            title: Edita estat
+            update: Actualitza estat
+          index:
+            title: Estats
+          new:
+            create: Crea estat
+            title: Nou estat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest estat
+            success: El estat ha estat actualitzat correctament
       models:
         project:
           fields:
@@ -80,6 +106,10 @@ ca:
         result:
           fields:
             title: Títol
+        status:
+          fields:
+            key: Key
+            name: Nom
       results:
         count:
           results_count:

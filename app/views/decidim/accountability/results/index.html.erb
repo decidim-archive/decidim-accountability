@@ -1,12 +1,12 @@
 <div class="row accountability">
   <div class="small-12 columns">
-    <%= render partial: "location_filters" %>         
+    <%= render partial: "scope_filters", locals: { url_method: :results_path} %>
   </div>
-  
-  <div class="small-12 medium-3 columns">            
+
+  <div class="small-12 medium-3 columns">
     <%= render partial: "nav_tree", locals: { category: category, result: nil} %>
   </div>
-  
+
   <div class="small-12 medium-9 columns">
     <div class="title-action">
       <h2 id="results-count" class="title-action__title section-heading">

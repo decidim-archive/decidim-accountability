@@ -1,7 +1,7 @@
 <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "header" %>
-    <%= render partial: "location_filters" %>
+    <%= render partial: "scope_filters", locals: { url_method: :root_path} %>
     <%= render partial: "categories" %>
   </div>
 </div>

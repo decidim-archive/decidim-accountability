@@ -6,7 +6,7 @@
     .progress-level {
       background: $white;
       padding: 1rem 1.75rem;
-      
+
       p {
         font-weight: 600;
         text-transform: uppercase;
@@ -21,7 +21,7 @@
         fill: white;
         padding: 0.15rem;
       }
-      
+
       .progress {
         margin-bottom: 0;
       }
@@ -33,7 +33,7 @@
     }
   }
 
-  .location-filters {
+  .scope-filters {
     span {
       margin-right: 0.5rem;
     }
@@ -41,7 +41,7 @@
       display: inline;
     }
   }
-  
+
   .description {
     margin-bottom: 1rem;
   }

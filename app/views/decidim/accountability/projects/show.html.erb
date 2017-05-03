@@ -13,12 +13,12 @@
       <%= icon("proposals", class: "icon", aria_label: "Títol", role: "img") %>
       <h2 class="heading2"><%= translated_attribute project.title %></h2>
     </div>
-    
+
     <div class="row">
       <div class="columns section mediumlarge-5 mediumlarge-push-7 end">
         <div class="progress-level">
           <div class="progress-label">
-            <span class="progress-text">Progreso:</span>
+            <span class="progress-text"><%= t("models.project.fields.progress", scope: "decidim.accountability") %>:</span>
             <span class="progress-figure">
               <%= display_percentage progress_calculator(current_scope, nil) %>
             </span>
@@ -29,35 +29,35 @@
           </div>
         </div>
       </div>
-      
+
       <div class="columns mediumlarge-3 mediumlarge-pull-5 end">
         <div class="section">
           <div class="project-meta">
             <div class="project-meta--label"><%= t("models.project.fields.start_date", scope: "decidim.accountability") %></div>
             <div class="project-meta--data"><%= project.start_date %></div>
           </div>
-          
+
           <div class="project-meta">
             <div class="project-meta--label"><%= t("models.project.fields.end_date", scope: "decidim.accountability") %></div>
             <div class="project-meta--data"><%= project.end_date %></div>
           </div>
-          
+
           <div class="project-meta">
             <div class="project-meta--label"><%= t("models.project.fields.status", scope: "decidim.accountability") %></div>
             <div class="project-meta--data"><%= t("models.project.valid_statuses.#{project.status}", scope: "decidim.accountability") %></div>
           </div>
         </div>
       </div>
-      
+
       <div class="small-12 columns">
         <hr>
-        
+
         <div class="section">
           <%== translated_attribute project.description %>
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 

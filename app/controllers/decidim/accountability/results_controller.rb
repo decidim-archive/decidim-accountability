@@ -14,11 +14,12 @@ module Decidim
       private
 
       def results
-        @results ||= search.results.page(params[:page]).per(12)
+        parent_id = params[:parent_id].presence
+        @results ||= search.results.where(parent_id: parent_id).page(params[:page]).per(12)
       end
 
       def result
-        @result ||= results.find(params[:id])
+        @result ||= Result.where(feature: current_feature).find(params[:id])
       end
 
       def stats_calculator
@@ -42,7 +43,7 @@ module Decidim
       end
 
       def first_class_categories
-        first_class_categories = current_participatory_process.categories.first_class
+        @first_class_categories ||= current_participatory_process.categories.first_class
       end
 
       def category

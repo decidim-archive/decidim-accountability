@@ -13,6 +13,10 @@ module Decidim
 
         "#{'%.02f' % number}%"
       end
+
+      def active_class_if_current(scope)
+        %Q{class=active} if scope.to_s == current_scope.to_s
+      end
     end
   end
 end

@@ -31,11 +31,16 @@ module Decidim
 
         def create_result
           @result = Result.create!(
+            feature: @form.current_feature,
             scope: @form.scope,
             category: @form.category,
-            feature: @form.current_feature,
+            parent_id: @form.parent_id,
             title: @form.title,
-            description: @form.description
+            description: @form.description,
+            start_date: @form.start_date,
+            end_date: @form.end_date,
+            progress: @form.progress,
+            decidim_accountability_status_id: @form.decidim_accountability_status_id
           )
         end
 

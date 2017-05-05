@@ -8,6 +8,13 @@ describe Decidim::Accountability::Admin::CreateResult do
   let(:current_feature) { create :feature, manifest_name: "accountability", participatory_process: participatory_process }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: participatory_process }
+
+  let(:start_date) { Date.yesterday }
+  let(:end_date) { Date.tomorrow }
+  let(:status) { create :accountability_status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+  let(:progress) { 89 }
+  let(:external_id) { "ID_in_other_system" }
+
   let(:meeting_feature) do
     create(:feature, manifest_name: "meetings", participatory_process: participatory_process)
   end
@@ -35,7 +42,13 @@ describe Decidim::Accountability::Admin::CreateResult do
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category,
-      current_feature: current_feature
+      current_feature: current_feature,
+      start_date: start_date,
+      end_date: end_date,
+      decidim_accountability_status_id: status.id,
+      progress: progress,
+      external_id: external_id,
+      parent_id: nil
     )
   end
   let(:invalid) { false }

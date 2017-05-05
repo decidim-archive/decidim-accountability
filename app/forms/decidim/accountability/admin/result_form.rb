@@ -10,10 +10,16 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        attribute :progress, Float
+
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
+        attribute :start_date, Date
+        attribute :end_date, Date
+        attribute :progress, Float
+        attribute :external_id, String
+        attribute :decidim_accountability_status_id, Integer
+        attribute :parent_id, Integer
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

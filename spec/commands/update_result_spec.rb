@@ -11,6 +11,13 @@ describe Decidim::Accountability::Admin::UpdateResult do
   let(:meeting_feature) do
     create(:feature, manifest_name: :meetings, participatory_process: participatory_process)
   end
+
+  let(:start_date) { Date.yesterday }
+  let(:end_date) { Date.tomorrow }
+  let(:status) { create :accountability_status, feature: result.feature, key: "finished", name: { en: "Finished" } }
+  let(:progress) { 95 }
+  let(:external_id) { "ID_in_other_system" }
+
   let(:meeting) do
     create(
       :meeting,
@@ -34,7 +41,13 @@ describe Decidim::Accountability::Admin::UpdateResult do
       description: {en: "description"},
       proposal_ids: proposals.map(&:id),
       scope: scope,
-      category: category
+      category: category,
+      start_date: start_date,
+      end_date: end_date,
+      decidim_accountability_status_id: status.id,
+      progress: progress,
+      external_id: external_id,
+      parent_id: nil
     )
   end
   let(:invalid) { false }

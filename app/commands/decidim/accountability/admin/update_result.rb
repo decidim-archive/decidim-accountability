@@ -36,10 +36,15 @@ module Decidim
 
         def update_result
           result.update_attributes!(
-            scope: form.scope,
-            category: form.category,
-            title: form.title,
-            description: form.description
+            scope: @form.scope,
+            category: @form.category,
+            parent_id: @form.parent_id,
+            title: @form.title,
+            description: @form.description,
+            start_date: @form.start_date,
+            end_date: @form.end_date,
+            progress: @form.progress,
+            decidim_accountability_status_id: @form.decidim_accountability_status_id
           )
         end
 

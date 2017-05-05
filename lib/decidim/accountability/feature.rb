@@ -41,10 +41,11 @@ Decidim.register_feature(:accountability) do |feature|
         participatory_process: process
       )
 
-      5.times do
+      5.times do |i|
         Decidim::Accountability::Status.create!(
           feature: feature,
-          name: Decidim::Faker::Localized.word
+          name: Decidim::Faker::Localized.word,
+          key: "status_#{i}"
         )
       end
 
@@ -62,8 +63,9 @@ Decidim.register_feature(:accountability) do |feature|
         Decidim::Comments::Seed.comments_for(result)
 
         3.times do
-          project = Decidim::Accountability::Project.create!(
-            result: result,
+          child_result = Decidim::Accountability::Result.create!(
+            feature: feature,
+            parent: result,
             start_date: Date.today,
             end_date: Date.today + 10,
             status: Decidim::Accountability::Status.all.sample,
@@ -74,7 +76,7 @@ Decidim.register_feature(:accountability) do |feature|
             end
           )
 
-          Decidim::Comments::Seed.comments_for(project)
+          Decidim::Comments::Seed.comments_for(child_result)
         end
       end
     end

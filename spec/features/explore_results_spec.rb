@@ -23,7 +23,7 @@ describe "Explore results", type: :feature do
   context "home" do
     let(:path) { decidim_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
-    it "shows all categories and subcatefgories" do
+    it "shows all categories and subcategories" do
       participatory_process.categories.each do |category|
         expect(page).to have_content(translated category.name)
       end
@@ -81,15 +81,6 @@ describe "Explore results", type: :feature do
         within "ul.tags.tags--result" do
           expect(page).to have_content(translated(result.category.name))
         end
-      end
-
-      it "links to the filter for this category" do
-        skip
-
-        within "ul.tags.tags--result" do
-          click_link translated(result.category.name)
-        end
-        expect(page).to have_select("filter_category_id", selected: translated(result.category.name))
       end
     end
 

@@ -22,12 +22,23 @@ describe Decidim::Accountability::Admin::ResultForm do
   let(:scope_id) { scope.id }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:category_id) { category.id }
+  let(:start_date) { Date.yesterday }
+  let(:end_date) { Date.tomorrow }
+  let(:status) { create :accountability_status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+  let(:progress) { 89 }
+  let(:external_id) { "ID_in_other_system" }
+
   let(:attributes) do
     {
       decidim_scope_id: scope_id,
       decidim_category_id: category_id,
       title_en: title[:en],
-      description_en: description[:en]
+      description_en: description[:en],
+      start_date: start_date,
+      end_date: end_date,
+      decidim_accountability_status_id: status.id,
+      progress: progress,
+      external_id: external_id
     }
   end
 

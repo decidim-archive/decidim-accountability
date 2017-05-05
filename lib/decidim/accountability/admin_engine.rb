@@ -12,9 +12,7 @@ module Decidim
 
       routes do
         resources :statuses
-        resources :results do
-          resources :projects
-        end
+        resources :results
         root to: "results#index"
       end
 

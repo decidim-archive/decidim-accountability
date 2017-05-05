@@ -10,13 +10,17 @@
   <div class="small-12 medium-9 columns">
     <div class="title-action">
       <h2 id="results-count" class="title-action__title section-heading">
-        <%= render partial: "count" %>
+        <%= t("results.count.results_count", scope: "decidim.accountability", count: results.total_count) %>
       </h2>
     </div>
 
     <div class="row">
       <div id="results" class="columns">
-        <%= render partial: "results" %>
+        <% if results.any?{|r| r.children.any? } %>
+          <%= render partial: "results_parent", locals: { results: results } %>
+        <% else %>
+          <%= render partial: "results_leaf", locals: { results: results } %>
+        <% end %>
       </div>
     </div>
   </div>

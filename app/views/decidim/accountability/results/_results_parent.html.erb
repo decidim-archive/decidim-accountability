@@ -2,15 +2,15 @@
   <% results.each do |result| %>
     <div class="card--list__item">
       <%= icon "proposals", class: "card--list__icon", remove_icon_class: true %>
-      
+
       <%= link_to result, class: "card--list__text card__link card__link--block" do %>
         <h5 class="card--list__heading">
           <%= translated_attribute result.title %>
         </h5>
-        
-        <span class="text-small"><strong><%= result.projects.count %></strong> proyectos</span>
+
+        <span class="text-small"><strong><%= result.children.count %></strong> proyectos</span>
       <% end %>
-      
+
       <div class="card--list__data">
         <span class="card--list__data__number"><%= display_percentage result.progress %></span>
       </div>

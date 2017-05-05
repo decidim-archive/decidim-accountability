@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage results from a Participatory Process
       class ResultsController < Admin::ApplicationController
-        helper_method :results
+        helper_method :results, :parent_result, :parent_results, :statuses
 
         def new
           @form = form(ResultForm).instance
@@ -17,7 +17,7 @@ module Decidim
           CreateResult.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("results.create.success", scope: "decidim.accountability.admin")
-              redirect_to results_path
+              redirect_to results_path(parent_id: result.parent_id)
             end
 
             on(:invalid) do
@@ -37,7 +37,7 @@ module Decidim
           UpdateResult.call(@form, result) do
             on(:ok) do
               flash[:notice] = I18n.t("results.update.success", scope: "decidim.accountability.admin")
-              redirect_to results_path
+              redirect_to results_path(parent_id: result.parent_id)
             end
 
             on(:invalid) do
@@ -52,17 +52,30 @@ module Decidim
 
           flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
 
-          redirect_to results_path
+          redirect_to results_path(parent_id: result.parent_id)
         end
 
         private
 
         def results
-          @results ||= Result.where(feature: current_feature).page(params[:page]).per(15)
+          parent_id = params[:parent_id].presence
+          @results ||= Result.where(feature: current_feature, parent_id: parent_id).page(params[:page]).per(15)
         end
 
         def result
-          @result ||= results.find(params[:id])
+          @result ||= Result.where(feature: current_feature).find(params[:id])
+        end
+
+        def parent_result
+          @parent_result ||= Result.where(feature: current_feature, id: params[:parent_id]).first
+        end
+
+        def parent_results
+          @parent_results ||= Result.where(feature: current_feature, parent_id: nil)
+        end
+
+        def statuses
+          @statuses ||= Status.where(feature: current_feature)
         end
       end
     end

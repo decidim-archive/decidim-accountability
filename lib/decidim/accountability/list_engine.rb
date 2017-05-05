@@ -12,9 +12,7 @@ module Decidim
       isolate_namespace Decidim::Accountability
 
       routes do
-        resources :results, only: [:index, :show] do
-          resources :projects, only: [:show], shallow: true
-        end
+        resources :results, only: [:index, :show]
         root to: "results#home"
       end
     end

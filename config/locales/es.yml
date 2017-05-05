@@ -2,19 +2,16 @@
 es:
   activemodel:
     attributes:
-      project:
-        description: Descripción
-        end_date: Fin
-        external_id: External ID
-        progress: Progreso
-        start_date: Inicio
-        status: Estado
-        title: Título
       result:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas incluidas
+        end_date: Fin
+        external_id: External ID
+        progress: Progreso
+        start_date: Inicio
+        status: Estado
         title: Título
       status:
         key: Key
@@ -30,29 +27,10 @@ es:
         title: Acciones
       admin:
         models:
-          project:
-            name: Proyecto
           result:
             name: Resultado
           status:
             name: Estado
-        projects:
-          create:
-            invalid: Ha habido un problema al crear este proyecto
-            success: El proyecto ha sido creado correctamente
-          destroy:
-            success: El proyecto se ha eliminado correctamente
-          edit:
-            title: Editar proyecto
-            update: Actualizar proyecto
-          index:
-            title: "%{result_title}: Proyectos"
-          new:
-            create: Crear proyecto
-            title: Nuevo proyecto
-          update:
-            invalid: Ha habido un problema al actualizar este proyecto
-            success: El proyecto ha actualizado correctamente
         results:
           create:
             invalid: Ha habido un problema al crear este resultado
@@ -92,19 +70,12 @@ es:
             invalid: Ha habido un problema al actualizar este estado
             success: El estado ha actualizado correctamente
       models:
-        project:
+        result:
           fields:
             end_date: Fin
             progress: Progreso
             start_date: Inicio
             status: Estado
-            title: Título
-          valid_statuses:
-            finished: Terminado
-            ongoing: En curso
-            planned: Planificado
-        result:
-          fields:
             title: Título
         status:
           fields:

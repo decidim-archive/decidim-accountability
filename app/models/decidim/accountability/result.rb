@@ -14,10 +14,21 @@ module Decidim
 
       feature_manifest_name "accountability"
 
-      has_many :projects, foreign_key: "decidim_accountability_result_id", class_name: Decidim::Accountability::Project, inverse_of: :result, dependent: :destroy
+      has_many :children, foreign_key: "parent_id", class_name: Decidim::Accountability::Result, inverse_of: :parent, dependent: :destroy
+      belongs_to :parent, foreign_key: "parent_id", class_name: Decidim::Accountability::Result, inverse_of: :children
+
+      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: Decidim::Accountability::Status, inverse_of: :results
+
+      after_save :update_parent_progress, if: -> { parent_id.present? }
+
+      def update_parent_progress
+        return unless parent.present?
+
+        parent.update_progress!
+      end
 
       def update_progress!
-        self.progress = projects.average(:progress)
+        self.progress = children.average(:progress)
         self.save!
       end
 

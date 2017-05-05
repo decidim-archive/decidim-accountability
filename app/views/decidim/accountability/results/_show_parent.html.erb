@@ -1,0 +1,36 @@
+<div class="row accountability">
+  <div class="column view-header">
+    <h2 class="heading2"><%= translated_attribute result.title %></h2>
+  </div>
+
+  <div class="columns mediumlarge-8">
+    <div class="section">
+      <div class="description">
+        <%== translated_attribute result.description %>
+      </div>
+      <%= render partial: "tags", locals: { result: result } %>
+    </div>
+  </div>
+
+  <div class="small-12 columns section">
+    <div class="row">
+      <div class="small-12 medium-3 columns">
+        <%= render partial: "nav_tree", locals: { category: result.try(:category), result: result} %>
+      </div>
+      <div class="small-12 medium-9 columns">
+        <div class="title-action">
+          <h2 id="results-count" class="title-action__title section-heading">
+            <%= t("results.count.results_count", scope: "decidim.accountability", count: result.children.count) %>
+          </h2>
+        </div>
+
+        <%= render partial: "results_leaf", locals: { results: result.children } %>
+      </div>
+
+    </div>
+  </div>
+
+  <%= render partial: "stats" %>
+
+  <%= comments_for result %>
+</div>

@@ -15,6 +15,10 @@ module Decidim
         resources :results, only: [:index, :show]
         root to: "results#home"
       end
+
+      initializer "decidim_accountability.assets" do |app|
+        app.config.assets.precompile += %w(decidim_accountability_manifest.js)
+      end
     end
   end
 end

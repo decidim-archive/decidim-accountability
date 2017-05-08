@@ -35,7 +35,9 @@ module Decidim
         def update_status
           status.update_attributes!(
             key: @form.key,
-            name: @form.name
+            name: @form.name,
+            description: @form.description,
+            progress: @form.progress
           )
         end
       end

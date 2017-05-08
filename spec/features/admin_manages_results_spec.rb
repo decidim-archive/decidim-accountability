@@ -24,3 +24,15 @@ describe "Admin manages child results", type: :feature do
     click_link translated(result.title)
   end
 end
+
+describe "Admin manages statuses", type: :feature do
+  include_context "admin"
+  it_behaves_like "manage statuses"
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
+    click_link "Statuses"
+  end
+end

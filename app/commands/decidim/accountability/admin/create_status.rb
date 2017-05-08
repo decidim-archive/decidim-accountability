@@ -31,7 +31,9 @@ module Decidim
           @status = Status.create!(
             feature: @form.current_feature,
             key: @form.key,
-            name: @form.name
+            name: @form.name,
+            description: @form.description,
+            progress: @form.progress
           )
         end
       end

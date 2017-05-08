@@ -10,6 +10,8 @@ module Decidim
 
         attribute :key, String
         translatable_attribute :name, String
+        translatable_attribute :description, String
+        attribute :progress, Integer
 
         validates :key, presence: true
         validates :name, translatable_presence: true

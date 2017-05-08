@@ -37,12 +37,12 @@ describe Decidim::Accountability::Admin::CreateResult do
   let(:form) do
     double(
       :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
+      current_feature: current_feature,
+      title: { en: "title" },
+      description: { en: "description" },
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category,
-      current_feature: current_feature,
       start_date: start_date,
       end_date: end_date,
       decidim_accountability_status_id: status.id,

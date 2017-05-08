@@ -16,6 +16,8 @@ ca:
       status:
         key: Key
         name: Nom
+        description: Descripció
+        progress: Progrés
   decidim:
     accountability:
       actions:
@@ -81,6 +83,8 @@ ca:
           fields:
             key: Key
             name: Nom
+            description: Descripció
+            progress: Progrés
       results:
         count:
           results_count:

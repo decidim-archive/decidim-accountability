@@ -11,9 +11,11 @@ FactoryGirl.define do
   end
 
   factory :accountability_status, class: Decidim::Accountability::Status do
+    feature { build(:feature, manifest_name: "accountability") }
     sequence(:key) { |n| "status_#{n}" }
     name { Decidim::Faker::Localized.word }
-    feature { build(:feature, manifest_name: "accountability") }
+    description { Decidim::Faker::Localized.sentence(3) }
+    progress { rand(1..100) }
   end
 
   factory :accountability_result, class: Decidim::Accountability::Result do

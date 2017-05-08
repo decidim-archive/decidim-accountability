@@ -14,8 +14,10 @@ en:
         status: status
         title: Title
       status:
+        description: Description
         key: Key
         name: Name
+        progress: Progress
   decidim:
     accountability:
       actions:
@@ -79,8 +81,10 @@ en:
             title: Title
         status:
           fields:
+            description: Description
             key: Key
             name: Name
+            progress: Progress
       results:
         count:
           results_count:

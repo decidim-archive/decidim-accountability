@@ -17,6 +17,8 @@
           <tr>
             <th><%= t("models.status.fields.key", scope: "decidim.accountability") %></th>
             <th><%= t("models.status.fields.name", scope: "decidim.accountability") %></th>
+            <th><%= t("models.status.fields.description", scope: "decidim.accountability") %></th>
+            <th><%= t("models.status.fields.progress", scope: "decidim.accountability") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
@@ -25,6 +27,8 @@
             <tr data-id="<%= status.id %>">
               <td><%= status.key %><br /></td>
               <td><%= translated_attribute(status.name) %></td>
+              <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
+              <td><%= status.progress %></td>
               <td class="table-list__actions">
                 <% if can? :update, current_feature %>
                   <%= icon_link_to "pencil", edit_status_path(status), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>

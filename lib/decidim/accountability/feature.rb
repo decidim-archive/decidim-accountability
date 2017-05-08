@@ -17,11 +17,6 @@ Decidim.register_feature(:accountability) do |feature|
     resource.template = "decidim/accountability/results/linked_results"
   end
 
-  feature.register_resource do |resource|
-    resource.model_class_name = "Decidim::Accountability::Project"
-    resource.template = "decidim/accountability/projects/linked_projects"
-  end
-
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
   end

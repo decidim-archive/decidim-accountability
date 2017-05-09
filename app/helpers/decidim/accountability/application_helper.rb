@@ -11,7 +11,7 @@ module Decidim
       def display_percentage(number)
         return unless number.present?
 
-        "#{'%.02f' % number}%"
+        number_to_percentage(number, precision: 1, strip_insignificant_zeros: true, locale: I18n.locale)
       end
 
       def active_class_if_current(scope)

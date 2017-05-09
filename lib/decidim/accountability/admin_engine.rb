@@ -11,6 +11,7 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
+        resource :template_texts
         resources :statuses
         resources :results
         root to: "results#index"

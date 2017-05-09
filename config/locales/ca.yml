@@ -6,18 +6,24 @@ ca:
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
-        proposal_ids: Propostes incloses
         end_date: Fi
         external_id: External ID
         progress: Progrés
+        proposal_ids: Propostes incloses
         start_date: Inici
         status: Estat
         title: Títol
       status:
+        description: Descripció
         key: Key
         name: Nom
-        description: Descripció
         progress: Progrés
+      template_texts:
+        categories_label: Categorias
+        heading_leaf_level_results: Heading for leaf level results
+        heading_parent_level_results: Heading for parent level results
+        intro: Texto de introducció
+        subcategories_label: Subcategorias
   decidim:
     accountability:
       actions:
@@ -54,6 +60,7 @@ ca:
           subnav:
             results: Resultats
             statuses: Estats
+            template_texts: Template Texts
         statuses:
           create:
             invalid: Hi ha hagut un problema en crear aquest estat
@@ -71,6 +78,15 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest estat
             success: El estat ha estat actualitzat correctament
+        template_texts:
+          edit:
+            title: Actualitza texts
+            update: Actualitza texts
+          form:
+            title: Actualitza texts
+          update:
+            invalid: Hi ha hagut un problema en actualitzar les texts
+            success: Texts ha estat actualitzat correctament
       models:
         result:
           fields:
@@ -81,9 +97,9 @@ ca:
             title: Títol
         status:
           fields:
+            description: Descripció
             key: Key
             name: Nom
-            description: Descripció
             progress: Progrés
       results:
         count:
@@ -94,6 +110,9 @@ ca:
           all: Tots
           global: Global
           scopes: Àmbits
+        home:
+          categories_label: Categorias
+          subcategories_label: Subcategorias
         nav_tree:
           global: Ejecució global
         search:

@@ -12,4 +12,5 @@ RSpec.shared_context "admin" do
   let!(:result) { create :accountability_result, scope: scope, feature: current_feature }
   let!(:child_result) { create :accountability_result, scope: scope, feature: current_feature, parent: result }
   let!(:status) { create :accountability_status, key: "ongoing", name: { en: "Ongoing" }, feature: current_feature  }
+  let!(:template_texts) { create :accountability_template_texts, feature: current_feature }
 end

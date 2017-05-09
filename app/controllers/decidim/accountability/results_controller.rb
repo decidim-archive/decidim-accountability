@@ -6,7 +6,7 @@ module Decidim
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
 
-      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :current_scope
+      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :current_scope, :template_texts
 
       def home
       end
@@ -58,6 +58,10 @@ module Decidim
 
       def current_scope
         params[:filter][:scope_id] if params[:filter]
+      end
+
+      def template_texts
+        Decidim::Accountability::TemplateTexts.for(current_feature)
       end
     end
   end

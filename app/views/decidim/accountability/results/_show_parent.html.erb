@@ -18,13 +18,7 @@
         <%= render partial: "nav_tree", locals: { category: result.try(:category), result: result} %>
       </div>
       <div class="small-12 medium-9 columns">
-        <div class="title-action">
-          <h2 id="results-count" class="title-action__title section-heading">
-            <%= t("results.count.results_count", scope: "decidim.accountability", count: result.children.count) %>
-          </h2>
-        </div>
-
-        <%= render partial: "results_leaf", locals: { results: result.children } %>
+        <%= render partial: "results_leaf", locals: { results: result.children, total_count: result.children.count } %>
       </div>
 
     </div>

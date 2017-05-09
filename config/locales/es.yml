@@ -6,18 +6,24 @@ es:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
-        proposal_ids: Propuestas incluidas
         end_date: Fin
         external_id: External ID
         progress: Progreso
+        proposal_ids: Propuestas incluidas
         start_date: Inicio
         status: Estado
         title: Título
       status:
+        description: Descripción
         key: Key
         name: Nombre
-        description: Descripción
         progress: Progreso
+      template_texts:
+        categories_label: Etiqueta de categorias
+        heading_leaf_level_results: Encabezado para resultados sin hijos
+        heading_parent_level_results: Encabezado para resultados con hijos
+        intro: Texto de introducción
+        subcategories_label: Etiqueta de subcategorias
   decidim:
     accountability:
       actions:
@@ -54,6 +60,7 @@ es:
           subnav:
             results: Resultados
             statuses: Estados
+            template_texts: Template Texts
         statuses:
           create:
             invalid: Ha habido un problema al crear este estado
@@ -71,6 +78,15 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este estado
             success: El estado ha actualizado correctamente
+        template_texts:
+          edit:
+            title: Actualizar textos
+            update: Actualizar textos
+          form:
+            title: Actualizar textos
+          update:
+            invalid: Ha habido un problema al actualizar los textos
+            success: Los textos se han actualizado correctamente
       models:
         result:
           fields:
@@ -81,9 +97,9 @@ es:
             title: Título
         status:
           fields:
+            description: Descripción
             key: Key
             name: Nombre
-            description: Descripción
             progress: Progreso
       results:
         count:
@@ -94,6 +110,9 @@ es:
           all: Todos
           global: Global
           scopes: Ámbitos
+        home:
+          categories_label: Categorías
+          subcategories_label: Subcategorías
         nav_tree:
           global: Ejecución global
         search:

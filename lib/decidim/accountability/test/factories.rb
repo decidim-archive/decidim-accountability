@@ -10,6 +10,15 @@ FactoryGirl.define do
     participatory_process { create(:participatory_process, :with_steps) }
   end
 
+  factory :accountability_template_texts, class: Decidim::Accountability::TemplateTexts do
+    feature { build(:feature, manifest_name: "accountability") }
+    intro { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    categories_label { Decidim::Faker::Localized.word }
+    subcategories_label { Decidim::Faker::Localized.word }
+    heading_parent_level_results { Decidim::Faker::Localized.word }
+    heading_leaf_level_results { Decidim::Faker::Localized.word }
+  end
+
   factory :accountability_status, class: Decidim::Accountability::Status do
     feature { build(:feature, manifest_name: "accountability") }
     sequence(:key) { |n| "status_#{n}" }

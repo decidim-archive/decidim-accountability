@@ -18,6 +18,12 @@ en:
         key: Key
         name: Name
         progress: Progress
+      template_texts:
+        categories_label: Categories label
+        heading_leaf_level_results: Heading for leaf level results
+        heading_parent_level_results: Heading for parent level results
+        intro: Intro text
+        subcategories_label: Subcategories label
   decidim:
     accountability:
       actions:
@@ -54,23 +60,33 @@ en:
           subnav:
             results: Results
             statuses: Statuses
+            template_texts: Template Texts
         statuses:
           create:
-            invalid: There's been a problem creating this estat
-            success: Estat successfully created
+            invalid: There's been a problem creating this status
+            success: Status successfully created
           destroy:
-            success: Estat successfully deleted
+            success: Status successfully deleted
           edit:
-            title: Edit estat
-            update: Update estat
+            title: Edit status
+            update: Update status
           index:
             title: Estats
           new:
-            create: Create estat
-            title: New estat
+            create: Create status
+            title: New status
           update:
-            invalid: There's been a problem updating this estat
-            success: Estat successfully updated
+            invalid: There's been a problem updating this status
+            success: Status successfully updated
+        template_texts:
+          edit:
+            title: Update template texts
+            update: Update texts
+          form:
+            title: Update texts
+          update:
+            invalid: There's been a problem updating template texts
+            success: Template texts successfully updated
       models:
         result:
           fields:
@@ -94,6 +110,9 @@ en:
           all: All
           global: Global
           scopes: Scopes
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
         nav_tree:
           global: Global execution
         search:

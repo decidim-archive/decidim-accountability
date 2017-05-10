@@ -27,7 +27,7 @@
                 <p class="heading3"><%= translated_attribute(category.name) %></p>
 
                 <div class="progress">
-                  <div class="progress-meter" style="width:<%= display_percentage progress_calculator(current_scope, category.id) %>"></div>
+                  <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
                 </div>
 
                 <div class="progress-figure">

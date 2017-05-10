@@ -116,7 +116,7 @@ en:
         nav_tree:
           global: Global execution
         search:
-          search: Search
+          search: Search for actions
         show:
           stats:
             attendees: Attendees

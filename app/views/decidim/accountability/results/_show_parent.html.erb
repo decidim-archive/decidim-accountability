@@ -1,14 +1,15 @@
 <div class="row accountability">
-  <div class="column view-header">
+  
+  <div class="small-12 medium-9 columns float-right">
     <h2 class="heading2"><%= translated_attribute result.title %></h2>
-  </div>
-
-  <div class="columns mediumlarge-8">
-    <div class="section">
-      <div class="description">
-        <%== translated_attribute result.description %>
+    
+    <div class="small-12 medium-8 column row end">
+      <div class="section">
+        <div class="description">
+          <%== translated_attribute result.description %>
+        </div>
+        <%= render partial: "tags", locals: { result: result } %>
       </div>
-      <%= render partial: "tags", locals: { result: result } %>
     </div>
   </div>
 

@@ -5,7 +5,7 @@
     }
     .progress-level {
       background: $white;
-      padding: 1rem 1.75rem;
+      padding: 1.5rem 1.75rem;
 
       p {
         font-weight: 600;
@@ -13,6 +13,7 @@
         margin-bottom: 0.25rem;
         display: inline-block;
         margin-right: 0.5rem;
+        font-size: 1.25rem;
       }
 
       .icon {
@@ -23,17 +24,28 @@
       }
 
       .progress {
+        max-width: 85%;
         margin-bottom: 0;
       }
 
       .progress-figure {
         font-size: 2.5rem;
         font-weight: 300;
+        color: lighten($dark-gray, 50);
+        
+        @include breakpoint(medium) {
+          font-size: 4rem;
+        }
       }
     }
   }
 
   .scope-filters {
+    div {
+      color: lighten($dark-gray, 50);
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
     span {
       margin-right: 0.5rem;
     }
@@ -47,6 +59,14 @@
 
   .description {
     margin-bottom: 1rem;
+  }
+  .title-action {
+    margin-bottom: 0.5rem;
+  }
+  .line-stats {
+    @include breakpoint(medium) {
+      margin-top: 2.65rem;
+    }
   }
 }
 
@@ -111,4 +131,3 @@
     margin: 0 0 3rem 0;
   }
 }
-

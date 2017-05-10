@@ -5,7 +5,7 @@
       padding-bottom: 1rem;
       margin-bottom: 1rem;
       
-      .icon {
+      .icon--arrow-bottom {
         fill: lighten($dark-gray, 50);
       }
       
@@ -27,9 +27,10 @@
       .category--title {
         background: $white;
         padding: 1.5rem 2rem;
+        min-height: 9rem;
         
         @include breakpoint(medium) {
-          height: calc(100% - 1rem);
+          height: calc(100% - 1.875rem);
         }
         
         p {
@@ -47,10 +48,11 @@
         border-radius: 4px;
         min-height: 7.5rem;
         padding: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.875rem;
         position: relative;
         
         a {
+          font-weight: 600;
           color: $dark-gray;
         }
         
@@ -62,7 +64,6 @@
     }
     
     .progress-figure {
-      font-size: 1.5rem;
       color: lighten($dark-gray, 50);
     }
   }

@@ -116,7 +116,7 @@ es:
         nav_tree:
           global: Ejecución global
         search:
-          search: Buscar
+          search: Buscar actuaciones
         show:
           stats:
             attendees: Asistentes

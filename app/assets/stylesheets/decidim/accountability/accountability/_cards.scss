@@ -2,6 +2,9 @@
   .card--list__text {
     display: block;
   }
+  .card--list__data {
+    min-width: 7rem;
+  }
   .card--meta {
     span {
       margin-right: 0.5rem;

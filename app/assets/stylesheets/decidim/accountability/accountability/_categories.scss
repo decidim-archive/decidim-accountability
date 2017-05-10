@@ -60,6 +60,14 @@
         }
       }
     }
+
+    .category--elements.active {
+      display: block !important;
+      
+      .medium-4:first-child {
+        margin-top: 1rem;
+      }
+    }
     
     .progress-figure {
       font-size: 1.5rem;

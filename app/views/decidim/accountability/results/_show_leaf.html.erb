@@ -42,7 +42,15 @@
           </div>
         </div>
       </div>
-      
+
+      <div class="small-12 columns">
+        <hr>
+
+        <div class="section">
+          <%== translated_attribute result.description %>
+          <%= render partial: "tags", locals: { result: result } %>
+        </div>
+      </div>
     </div>
   </div>
 

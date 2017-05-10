@@ -51,10 +51,76 @@
           <%= render partial: "tags", locals: { result: result } %>
         </div>
       </div>
+      
+      <div class="small-12 columns">
+        <hr>
+        
+        <div class="section">
+          <h4 class="section-heading">Evolución del proyecto</h4>
+          <ol class="timeline">
+            <li class="timeline__item ">
+              <div class="timeline__phase">
+                <span class="timeline__phase__number">1</span>
+              </div>
+              <div class="timeline__info">
+                <div class="timeline__header">
+                  <span class="timeline__date text-small">
+                    09-12-2015 - 30-01-2016
+                  </span>
+                  <h6 class="timeline__title heading6">Revisión por los servicios legales del nuevo borrador</h6>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline__item ">
+              <div class="timeline__phase">
+                <span class="timeline__phase__number">2</span>
+              </div>
+              <div class="timeline__info">
+                <div class="timeline__header">
+                  <span class="timeline__date text-small">
+                    31-01-2016 - 08-04-2016
+                  </span>
+                  <h6 class="timeline__title heading6">Arranque de la incorporación de sugerencias ciudadanas</h6>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline__item ">
+              <div class="timeline__phase">
+                <span class="timeline__phase__number">3</span>
+              </div>
+              <div class="timeline__info">
+                <div class="timeline__header">
+                  <span class="timeline__date text-small">
+                    09-04-2016 - 24-07-2016
+                  </span>
+                  <h6 class="timeline__title heading6">Primer borrador de la ordenanza</h6>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline__item timeline__item--current">
+              <div class="timeline__phase">
+                <span class="timeline__phase__number">4</span>
+              </div>
+              <div class="timeline__info">
+                <div class="timeline__header">
+                  <span class="timeline__date text-small">
+                    27-07-2016 - 30-12-2016
+                  </span>
+                  <h6 class="timeline__title heading6">Exposición pública de las líneas generales</h6>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      
     </div>
   </div>
 
-  <%= render partial: "stats" %>
+  <!-- <%= render partial: "stats" %> -->
 </div>
 
 <%= comments_for result %>

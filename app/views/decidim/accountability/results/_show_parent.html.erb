@@ -1,24 +1,21 @@
 <div class="row accountability">
-  
-  <div class="small-12 medium-9 columns float-right">
-    <h2 class="heading2"><%= translated_attribute result.title %></h2>
-    
-    <div class="small-12 medium-8 column row end">
-      <div class="section">
-        <div class="description">
-          <%== translated_attribute result.description %>
-        </div>
-        <%= render partial: "tags", locals: { result: result } %>
-      </div>
-    </div>
-  </div>
-
   <div class="small-12 columns section">
     <div class="row">
       <div class="small-12 medium-3 columns">
         <%= render partial: "nav_tree", locals: { category: result.try(:category), result: result} %>
       </div>
       <div class="small-12 medium-9 columns">
+        <h2 class="heading2"><%= translated_attribute result.title %></h2>
+        
+        <div class="small-12 medium-8 column row end">
+          <div class="section">
+            <div class="description">
+              <%== translated_attribute result.description %>
+            </div>
+            <%= render partial: "tags", locals: { result: result } %>
+          </div>
+        </div>
+        
         <%= render partial: "results_leaf", locals: { results: result.children, total_count: result.children.count } %>
       </div>
 

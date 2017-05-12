@@ -27,18 +27,24 @@
       <div class="columns mediumlarge-3 mediumlarge-pull-5 end">
         <div class="section">
           <div class="result-meta">
-            <div class="result-meta--label"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
-            <div class="result-meta--data"><%= result.start_date %></div>
+            <% if result.start_date %>
+              <div class="result-meta--label"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data"><%= result.start_date %></div>
+            <% end %>
           </div>
 
           <div class="result-meta">
-            <div class="result-meta--label"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
-            <div class="result-meta--data"><%= result.end_date %></div>
+            <% if result.end_date %>
+              <div class="result-meta--label"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data"><%= result.end_date %></div>
+            <% end %>
           </div>
 
           <div class="result-meta">
-            <div class="result-meta--label"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
-            <div class="result-meta--data"><%= translated_attribute(result.status.name) %></div>
+            <% if result.status %>
+              <div class="result-meta--label"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data"><%= translated_attribute(result.status.name) %></div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -19,11 +19,11 @@ en:
         name: Name
         progress: Progress
       template_texts:
-        categories_label: Categories label
-        heading_leaf_level_results: Heading for leaf level results
-        heading_parent_level_results: Heading for parent level results
+        categories_label: Name for "Categories"
+        heading_leaf_level_results: Name for "Results"
+        heading_parent_level_results: Name for "Projects"
         intro: Intro text
-        subcategories_label: Subcategories label
+        subcategories_label: Name for "Subcategories"
   decidim:
     accountability:
       actions:

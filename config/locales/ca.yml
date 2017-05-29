@@ -19,11 +19,11 @@ ca:
         name: Nom
         progress: Progrés
       template_texts:
-        categories_label: Categorias
-        heading_leaf_level_results: Heading for leaf level results
-        heading_parent_level_results: Heading for parent level results
+        categories_label: Nom per "Categorias"
+        heading_leaf_level_results: Nom per "Projectes"
+        heading_parent_level_results: Nom per "Resultats"
         intro: Texto de introducció
-        subcategories_label: Subcategorias
+        subcategories_label: Nom per "Subcategorias"
   decidim:
     accountability:
       actions:
@@ -127,7 +127,7 @@ ca:
             votes: Suports
     features:
       accountability:
-        name: Rendició de comptes
+        name: Seguiment
         settings:
           global:
             comments_enabled: Comentaris habilitats

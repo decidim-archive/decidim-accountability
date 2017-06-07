@@ -47,6 +47,10 @@ module Decidim
               end
             end
 
+            if row["decidim_accountability_status_id"].present? && status = Decidim::Accountability::Status.find_by(id: row["decidim_accountability_status_id"])
+              params["result"]["progress"] = status.progress if status.progress.present?
+            end
+
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
 
             begin

@@ -8,6 +8,8 @@ describe Decidim::Accountability::CSVImporter do
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "accountability" }
   let!(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:status_1) { create :accountability_status, feature: current_feature, progress: nil }
+  let!(:status_2) { create :accountability_status, feature: current_feature, progress: 17 }
   let!(:result) { create :accountability_result, scope: scope, feature: current_feature, id: 123 }
   let!(:ext_result) { create :accountability_result, scope: scope, feature: current_feature, external_id: "existing_external_id" }
 
@@ -78,7 +80,9 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.parent).to_not be_present
         expect(result.start_date).to eq(Date.new(2017,6,28))
         expect(result.end_date).to eq(Date.new(2017,8,30))
-        expect(result.progress).to eq(15)
+        expect(result.status).to be_present
+        expect(result.decidim_accountability_status_id).to eq(2)
+        expect(result.progress).to eq(17)
         expect(result.title).to eq("ca"=>"Existing Title in Catalan", "en"=>"Existing Title in English", "es"=>"Existing Title in Spanish")
       end
 

@@ -51,6 +51,14 @@ module Decidim
               params["result"]["progress"] = status.progress if status.progress.present?
             end
 
+            default_locale = @feature.participatory_process.organization.default_locale
+            available_locales = @feature.participatory_process.organization.available_locales
+
+            available_locales.each do |locale|
+              params["result"]["title_#{locale}"] = params["result"]["title_#{default_locale}"] if params["result"]["title_#{locale}"].blank?
+              params["result"]["description_#{locale}"] = params["result"]["description_#{default_locale}"] if params["result"]["description_#{locale}"].blank?
+            end
+
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
 
             begin

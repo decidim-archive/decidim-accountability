@@ -37,6 +37,7 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.end_date).to eq(Date.new(2017,6,30))
         expect(result.progress).to eq(40) #mean value of children's progress
         expect(result.title).to eq("ca" => "Salari bàsic de referència", "es" => "Salario básico de referencia", "en" => "Basic reference salary")
+        expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in English")
       end
 
       it "creates new child result" do
@@ -50,7 +51,7 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.start_date).to eq(Date.new(2017,6,23))
         expect(result.end_date).to eq(Date.new(2017,7,30))
         expect(result.progress).to eq(40)
-        expect(result.title).to eq("ca"=>"Child title in Catalan", "en"=>"Child title in English", "es"=>"Child title in Spanish")
+        expect(result.title).to eq("ca"=>"Child title in Catalan", "en"=>"Child title in English", "es"=>"Child title in English")
         expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in Spanish")
       end
 

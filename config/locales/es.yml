@@ -11,7 +11,7 @@ es:
         progress: Progreso
         proposal_ids: Propuestas incluidas
         start_date: Inicio
-        status: Estado
+        decidim_accountability_status_id: Estado
         title: Título
       status:
         description: Descripción
@@ -24,6 +24,14 @@ es:
         heading_parent_level_results: Nombre para "Proyectos"
         intro: Texto de introducción
         subcategories_label: Nombre para "Subcategorías"
+    errors:
+      models:
+        result:
+          attributes:
+            start_date:
+              invalid_date: no válida
+            end_date:
+              invalid_date: no válida
   decidim:
     accountability:
       actions:
@@ -34,6 +42,16 @@ es:
         preview: Previsualizar
         title: Acciones
       admin:
+        imports:
+          create:
+            invalid: Ha habido un problema al importar este fichero
+            not_found: No se ha encontrado ningún resultado con result_id %{result_id}
+            success: El fichero ha sido importado correctamente
+          new:
+            errors: Errores
+            import: Importar
+            row_number: Fila
+            title: Importar resultados desde CSV
         models:
           result:
             name: Resultado
@@ -58,6 +76,7 @@ es:
             success: El resultado ha actualizado correctamente
         shared:
           subnav:
+            import_csv: Import CSV
             results: Resultados
             statuses: Estados
             template_texts: Template Texts

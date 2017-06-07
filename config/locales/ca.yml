@@ -11,7 +11,7 @@ ca:
         progress: Progrés
         proposal_ids: Propostes incloses
         start_date: Inici
-        status: Estat
+        decidim_accountability_status_id: Estat
         title: Títol
       status:
         description: Descripció
@@ -24,6 +24,14 @@ ca:
         heading_parent_level_results: Nom per "Resultats"
         intro: Texto de introducció
         subcategories_label: Nom per "Subcategorias"
+    errors:
+      models:
+        result:
+          attributes:
+            start_date:
+              invalid_date: no vàlida
+            end_date:
+              invalid_date: no vàlida
   decidim:
     accountability:
       actions:
@@ -34,6 +42,16 @@ ca:
         preview: Previsualitzar
         title: Accions
       admin:
+        imports:
+          create:
+            invalid: Hi ha hagut un problema en importar aquest fitxer
+            not_found: No s'ha trobat un resultat amb result_id %{result_id}
+            success: El fitxer ha estat importat correctament
+          new:
+            errors: Errors
+            import: Import
+            row_number: Fila
+            title: Importar resultats des de CSV
         models:
           result:
             name: Resultat
@@ -58,6 +76,7 @@ ca:
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
+            import_csv: Import CSV
             results: Resultats
             statuses: Estats
             template_texts: Template Texts

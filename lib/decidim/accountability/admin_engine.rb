@@ -14,6 +14,7 @@ module Decidim
         resource :template_texts
         resources :statuses
         resources :results
+        resource :import, only: [:new, :create]
         root to: "results#index"
       end
 

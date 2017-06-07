@@ -19,7 +19,7 @@ Upload a CSV file with the following headers:
 - `description_es`
 - `description_en`
 
-You can download `empty_example.csv` from this folder and fill it with your data. 
+You can download [empty_example.csv](empty_example.csv) from this folder and fill it with your data. 
 
 If there's any error on any of the CSV rows the file will not be imported at all. You will get the error messages so you can fix the file and upload it again.  
 
@@ -30,7 +30,7 @@ It's the internal ID of the result in Decidim.
 
 If it's present the importer will try to find the result with that ID and update it. If the result with that ID is not found you will get an error.
 
-If it's not present (and there's no value for `external_id` in this row, as explained later) the importer will try to create a new result.
+If it desn't have a value (and there's no value for `external_id` in this row, as explained later) the importer will try to create a new result.
 
 
 #### `decidim_category_id`

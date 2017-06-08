@@ -60,8 +60,6 @@ RSpec.shared_examples "manage child results" do
         ca: "Descripció més llarga"
       )
 
-      page.execute_script("$('#result_start_date').val('20/04/2017')")
-      page.execute_script("$('#result_end_date').val('20/04/2017')")
       select "Ongoing", from: :result_decidim_accountability_status_id
       fill_in :result_progress, with: 89
       fill_in :result_external_id, with: "ID_in_other_system"

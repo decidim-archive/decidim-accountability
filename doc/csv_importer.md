@@ -78,4 +78,18 @@ For results that have children the progress will be calculated and stored as the
 #### `title` and `description`
 For the  `title` and `description` columns you should add one column per available locale, with the `_locale` suffix. You need at least the values for the default locale. The values for the default locale will be copied to the missing ones.
 
+## Example use cases
+
+### PAM use case
+
+For the PAM process in Decidim Barcelona, there are already results in Decidim, but the projects (child results) are being tracked in an external system. This systems has its own IDs for first level results (already in Decidim) and second level results (projects, still not created in Decidim). 
+
+This importer can be used to import those results without having to fill in the internal Decidim IDs in the CSV file. 
+
+In a first pass the existing results will have to be updated to store the external system ID in the `external_id` field. 
+
+Then in the CSV to create the second level results (projects), instead of filling the `parent_id` column with the internal Decidim ID, fill in the `parent_external_id` column with the ID in the external project tracking system, and the parent result will be found by its `external_id` field and the new result created as a child of that result.
+
+If you want to update existing results that already have an `external_id` set with the value of the external system ID, in the CSV you can fill in the `external_id`  column instead of filling in the `result_id` column and the importer will find the result by its `external_id` and update it. 
+
 

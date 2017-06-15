@@ -4,7 +4,6 @@ PATH
     decidim-accountability (0.0.1)
       decidim-comments
       decidim-core
-      rails (~> 5.0.2)
 
 GEM
   remote: https://rubygems.org/

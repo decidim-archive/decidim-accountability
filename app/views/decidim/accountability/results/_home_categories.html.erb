@@ -24,7 +24,8 @@
           <div class="categories--group row">
             <div class="small-12 medium-4 columns">
               <div class="category--title">
-                <p class="heading3"><%= translated_attribute(category.name) %></p>
+                <p class="heading3">
+                <%= link_to translated_attribute(category.name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
 
                 <div class="progress">
                   <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
@@ -49,7 +50,7 @@
                     </div>
                   <% end %>
                 <% end %>
-                
+
               </div>
             </div>
           </div>

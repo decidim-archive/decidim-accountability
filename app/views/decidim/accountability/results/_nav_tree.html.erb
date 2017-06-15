@@ -4,36 +4,57 @@
     <span class="percentage"><%= display_percentage progress_calculator(current_scope, nil) %></span>
   </div>
 
+  <% if category.present? && !category.parent.present? %>
+    <ul class="list">
+      <li>
+        <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
+        <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+      </li>
+      <% if result.present? %>
+      <ul class="list--first_level">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9">
+            <polyline fill="none" stroke="#979797" points="21 99 21 107 29.532 107" transform="translate(-20 -99)" stroke-dasharray="1 1"/>
+          </svg>
+
+          <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
+          <span class="percentage"><%= display_percentage result.progress %></span>
+        </li>
+      </ul>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% if category.present? && category.parent.present? %>
   <ul class="list">
     <li>
       <%= link_to translated_attribute(category.parent.name), decidim_accountability.results_path(filter: { category_id: category.parent_id }) %>
       <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.parent_id) %></span>
     </li>
-      <ul class="list--first_level">
-        <li>
-          <% if category.present? %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9">
-              <polyline fill="none" stroke="#979797" points="21 99 21 107 29.532 107" transform="translate(-20 -99)" stroke-dasharray="1 1"/>
-            </svg>
-            
-            <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
-            <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+    <ul class="list--first_level">
+      <li>
+        <% if category.present? %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9">
+            <polyline fill="none" stroke="#979797" points="21 99 21 107 29.532 107" transform="translate(-20 -99)" stroke-dasharray="1 1"/>
+          </svg>
+
+          <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
+          <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+          <% end %>
+      </li>
+        <ul class="list--second_level">
+          <li>
+            <% if result.present? %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9">
+                <polyline fill="none" stroke="#979797" points="21 99 21 107 29.532 107" transform="translate(-20 -99)" stroke-dasharray="1 1"/>
+              </svg>
+
+              <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
+              <span class="percentage"><%= display_percentage result.progress %></span>
             <% end %>
-        </li>
-          <ul class="list--second_level">
-            <li>
-              <% if result.present? %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="9" viewBox="0 0 10 9">
-                  <polyline fill="none" stroke="#979797" points="21 99 21 107 29.532 107" transform="translate(-20 -99)" stroke-dasharray="1 1"/>
-                </svg>
-                
-                <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
-                <span class="percentage"><%= display_percentage result.progress %></span>
-              <% end %>
-            </li>
-          </ul>
+          </li>
+        </ul>
       </ul>
-  </ul>
+    </ul>
   <% end %>
 </div>

@@ -77,7 +77,6 @@ en:
         shared:
           subnav:
             import_csv: Import CSV
-            results: Results
             statuses: Statuses
             template_texts: Template Texts
         statuses:

@@ -77,9 +77,8 @@ es:
         shared:
           subnav:
             import_csv: Import CSV
-            results: Resultados
             statuses: Estados
-            template_texts: Template Texts
+            template_texts: Portada
         statuses:
           create:
             invalid: Ha habido un problema al crear este estado

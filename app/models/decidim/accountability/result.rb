@@ -14,10 +14,10 @@ module Decidim
 
       feature_manifest_name "accountability"
 
-      has_many :children, foreign_key: "parent_id", class_name: Decidim::Accountability::Result, inverse_of: :parent, dependent: :destroy
-      belongs_to :parent, foreign_key: "parent_id", class_name: Decidim::Accountability::Result, inverse_of: :children
+      has_many :children, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :parent, dependent: :destroy
+      belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :children
 
-      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: Decidim::Accountability::Status, inverse_of: :results
+      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results
 
       before_validation :remove_blank_values
 

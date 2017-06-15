@@ -76,10 +76,9 @@ ca:
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
-            import_csv: Import CSV
-            results: Resultats
+            import_csv: Importa CSV
             statuses: Estats
-            template_texts: Template Texts
+            template_texts: Portada
         statuses:
           create:
             invalid: Hi ha hagut un problema en crear aquest estat

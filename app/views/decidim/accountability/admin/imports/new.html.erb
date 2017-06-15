@@ -1,11 +1,10 @@
-<div>
-  <%= render partial: "decidim/accountability/admin/shared/subnav" %>
-</div>
-
 <%= form_tag({:action => :create}, multipart: true, class: "form new_import") do %>
   <div class="card">
     <div class="card-divider">
-      <h2 class="card-title"><%= t(".title") %></h2>
+      <h2 class="card-title">
+        <%= t(".title") %>
+        <%= render partial: "decidim/accountability/admin/shared/subnav" %>
+      </h2>
     </div>
 
     <% unless @errors.empty? %>

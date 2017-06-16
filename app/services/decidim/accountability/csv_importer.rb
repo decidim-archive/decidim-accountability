@@ -59,6 +59,11 @@ module Decidim
               params["result"]["description_#{locale}"] = params["result"]["description_#{default_locale}"] if params["result"]["description_#{locale}"].blank?
             end
 
+            if params["result"]["proposal_ids"].presence
+              proposal_ids = params["result"]["proposal_ids"].split(";")
+              params["result"]["proposal_ids"] = proposal_ids
+            end
+
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
 
             begin

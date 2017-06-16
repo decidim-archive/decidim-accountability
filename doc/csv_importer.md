@@ -18,6 +18,7 @@ Upload a CSV file with the following headers:
 - `description_ca`
 - `description_es`
 - `description_en`
+- `proposal_ids`
 
 You can download [empty_example.csv](empty_example.csv) from this folder and fill it with your data. 
 
@@ -77,6 +78,9 @@ For results that have children the progress will be calculated and stored as the
 
 #### `title` and `description`
 For the  `title` and `description` columns you should add one column per available locale, with the `_locale` suffix. You need at least the values for the default locale. The values for the default locale will be copied to the missing ones.
+
+#### `proposal_ids`
+This should be a list of the IDs of the proposals in Decidim, separated by semicolons.
 
 ## Example use cases
 

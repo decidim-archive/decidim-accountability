@@ -12,6 +12,16 @@ describe Decidim::Accountability::CSVImporter do
   let!(:status_2) { create :accountability_status, feature: current_feature, progress: 17 }
   let!(:result) { create :accountability_result, scope: scope, feature: current_feature, id: 123 }
   let!(:ext_result) { create :accountability_result, scope: scope, feature: current_feature, external_id: "existing_external_id" }
+  let!(:proposal_feature) do
+    create(:feature, manifest_name: "proposals", participatory_process: participatory_process)
+  end
+  let!(:proposals) do
+    create_list(
+      :proposal,
+      5,
+      feature: proposal_feature
+    )
+  end
 
   describe "import!" do
     context "csv file with valid data" do
@@ -100,6 +110,7 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.progress).to eq(20)
         expect(result.title).to eq("ca"=>"Child ext title in Catalan", "en"=>"Child ext title in English", "es"=>"Child ext title in Spanish")
         expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in Spanish")
+        expect(result.linked_resources(:proposals, "included_proposals").map(&:id).sort).to eq([1,2,4])
       end
     end
 

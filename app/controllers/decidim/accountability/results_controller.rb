@@ -11,6 +11,10 @@ module Decidim
       def home
       end
 
+      def csv
+        send_data CSVExporter.new(current_feature).export, filename: "results.csv", disposition: "attachment"
+      end
+
       private
 
       def results

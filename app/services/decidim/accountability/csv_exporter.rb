@@ -40,22 +40,8 @@ module Decidim
           csv << headers
 
           results.find_each do |result|
-            row = [
-              result.id,
-              result.decidim_category_id,
-              result.decidim_scope_id,
-              result.parent_id,
-              result.external_id,
-              result.parent.try(:external_id),
-              result.start_date,
-              result.end_date,
-              result.decidim_accountability_status_id,
-              result.progress,
-              result.linked_resources(:proposals, "included_proposals").map(&:id).sort.join(";"),
-            ]
-            available_locales.each do |locale|
-              row << result.title[locale]
-              row << result.description[locale]
+            row = Rails.cache.fetch("#{result.cache_key}/csv") do
+              row_for_result(result, available_locales)
             end
 
             csv << row
@@ -63,6 +49,30 @@ module Decidim
         end
 
         generated_csv
+      end
+
+      private
+
+      def row_for_result(result, available_locales)
+        row = [
+          result.id,
+          result.decidim_category_id,
+          result.decidim_scope_id,
+          result.parent_id,
+          result.external_id,
+          result.parent.try(:external_id),
+          result.start_date,
+          result.end_date,
+          result.decidim_accountability_status_id,
+          result.progress,
+          result.linked_resources(:proposals, "included_proposals").map(&:id).sort.join(";"),
+        ]
+        available_locales.each do |locale|
+          row << result.title[locale]
+          row << result.description[locale]
+        end
+
+        row
       end
     end
   end

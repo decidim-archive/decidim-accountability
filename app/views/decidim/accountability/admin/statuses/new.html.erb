@@ -1,7 +1,3 @@
-<div>
-  <%= render partial: "decidim/accountability/admin/shared/subnav" %>
-</div>
-
 <%=  decidim_form_for(@form, html: { class: "form new_status" }) do |f| %>
   <%= render partial: 'form', object: f, locals: { title: t('.title') }  %>
 

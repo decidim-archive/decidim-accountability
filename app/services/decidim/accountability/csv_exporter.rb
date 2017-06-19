@@ -65,7 +65,7 @@ module Decidim
           result.end_date,
           result.decidim_accountability_status_id,
           result.progress,
-          result.linked_resources(:proposals, "included_proposals").map(&:id).sort.join(";"),
+          result.linked_resources(:proposals, "included_proposals").pluck(:id).sort.join(";"),
         ]
         available_locales.each do |locale|
           row << result.title[locale]

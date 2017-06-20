@@ -6,8 +6,7 @@
 
     <div class="small-12 medium-5 columns">
       <div class="progress-level">
-        <p>Estado de ejecución global</p>
-        <%= icon("info", class: "icon", aria_label: "Afegir", role: "img") %>
+        <p><%= t(".global_status") %></p>
 
         <div class="progress">
           <div class="progress-meter" style="width:<%= progress_calculator(current_scope, nil) %>%"></div>
@@ -16,6 +15,8 @@
         <div class="progress-figure">
           <%= display_percentage progress_calculator(current_scope, nil) %>
         </div>
+
+        <%= link_to t(".csv_download"), csv_path %>
       </div>
     </div>
 

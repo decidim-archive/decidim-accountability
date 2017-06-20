@@ -3,6 +3,7 @@ es:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
@@ -11,7 +12,6 @@ es:
         progress: Progreso
         proposal_ids: Propuestas incluidas
         start_date: Inicio
-        decidim_accountability_status_id: Estado
         title: Título
       status:
         description: Descripción
@@ -28,9 +28,9 @@ es:
       models:
         result:
           attributes:
-            start_date:
-              invalid_date: no válida
             end_date:
+              invalid_date: no válida
+            start_date:
               invalid_date: no válida
   decidim:
     accountability:
@@ -131,6 +131,9 @@ es:
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías
+        home_header:
+          csv_download: Descargar datos en CSV
+          global_status: Estado de ejecución global
         nav_tree:
           global: Ejecución global
         search:

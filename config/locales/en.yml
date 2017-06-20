@@ -131,6 +131,9 @@ en:
         home:
           categories_label: Categories
           subcategories_label: Subcategories
+        home_header:
+          csv_download: Download data in CSV
+          global_status: Global execution status
         nav_tree:
           global: Global execution
         search:

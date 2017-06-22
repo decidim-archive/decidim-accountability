@@ -36,4 +36,10 @@ FactoryGirl.define do
     status { create :accountability_status, feature: feature }
     progress { rand(1..100) }
   end
+
+  factory :accountability_timeline_entry, class: Decidim::Accountability::TimelineEntry do
+    result { build(:accountability_result) }
+    entry_date { "12/7/2017" }
+    description { Decidim::Faker::Localized.sentence(2) }
+  end
 end

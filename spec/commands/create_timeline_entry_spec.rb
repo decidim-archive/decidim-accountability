@@ -2,24 +2,21 @@
 
 require "spec_helper"
 
-describe Decidim::Accountability::Admin::CreateStatus do
+describe Decidim::Accountability::Admin::CreateTimelineEntry do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, manifest_name: "accountability", participatory_process: participatory_process }
+  let(:result) { create :accountability_result, feature: current_feature }
 
-  let(:key) { "planned" }
-  let(:name) { "Planned" }
+  let(:date) { "2017-8-23" }
   let(:description) { "description" }
-  let(:progress) { 75 }
 
   let(:form) do
     double(
       :invalid? => invalid,
-      current_feature: current_feature,
-      key: key,
-      name: {en: name},
-      description: {en: description},
-      progress: progress
+      decidim_accountability_result_id: result.id,
+      entry_date: date,
+      description: { en: description }
     )
   end
   let(:invalid) { false }
@@ -35,31 +32,25 @@ describe Decidim::Accountability::Admin::CreateStatus do
   end
 
   context "when everything is ok" do
-    let(:status) { Decidim::Accountability::Status.last }
+    let(:timeline_entry) { Decidim::Accountability::TimelineEntry.last }
 
-    it "creates the status" do
-      expect { subject.call }.to change { Decidim::Accountability::Status.count }.by(1)
+    it "creates the timeline entry" do
+      expect { subject.call }.to change { Decidim::Accountability::TimelineEntry.count }.by(1)
     end
 
-    it "sets the name" do
+    it "sets the entry date" do
       subject.call
-      expect(translated status.name).to eq name
+      expect(timeline_entry.entry_date).to eq(Date.new(2017,8,23))
     end
 
     it "sets the description" do
       subject.call
-      expect(translated status.description).to eq description
+      expect(translated timeline_entry.description).to eq description
     end
 
-    it "sets the key" do
+    it "sets the result" do
       subject.call
-      expect(status.key).to eq key
+      expect(timeline_entry.result).to eq(result)
     end
-
-    it "sets the progress" do
-      subject.call
-      expect(status.progress).to eq progress
-    end
-
   end
 end

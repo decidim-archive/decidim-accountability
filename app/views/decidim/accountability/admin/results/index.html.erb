@@ -27,6 +27,14 @@
                 <%= icon_link_to "eye", decidim_accountability.result_path(id: result, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
 
                 <% if can? :update, current_feature %>
+                  <%= icon_link_to "plus", results_path(parent_id: result.id), t("actions.new", scope: "decidim.accountability"), class: "action-icon--plus" %>
+                <% end %>
+
+                <% if can? :update, current_feature %>
+                  <%= icon_link_to "clock", result_timeline_entries_path(result), t("actions.timeline_entries", scope: "decidim.accountability"), class: "action-icon--clock" %>
+                <% end %>
+
+                <% if can? :update, current_feature %>
                   <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
                 <% end %>
 

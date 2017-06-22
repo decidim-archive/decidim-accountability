@@ -23,7 +23,7 @@ module Decidim
       end
 
       def result
-        @result ||= Result.where(feature: current_feature).find(params[:id])
+        @result ||= Result.includes(:timeline_entries).where(feature: current_feature).find(params[:id])
       end
 
       def stats_calculator

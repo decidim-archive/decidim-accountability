@@ -24,6 +24,9 @@ ca:
         heading_parent_level_results: Nom per "Resultats"
         intro: Texto de introducció
         subcategories_label: Nom per "Subcategorias"
+      timeline_entry:
+        description: Descripció
+        entry_date: Data
     errors:
       models:
         result:
@@ -35,11 +38,12 @@ ca:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
+        confirm_destroy: Esteu segur que voleu suprimir aquest %{name}?
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
         preview: Previsualitzar
+        timeline_entries: Evolució del projecte
         title: Accions
       admin:
         imports:
@@ -57,6 +61,8 @@ ca:
             name: Resultat
           status:
             name: Estat
+          timeline_entry:
+            name: Element
         results:
           create:
             invalid: Hi ha hagut un problema en crear aquest resultat
@@ -105,6 +111,23 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar les texts
             success: Texts ha estat actualitzat correctament
+        timeline_entries:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest element
+            success: El element ha estat creat correctament
+          destroy:
+            success: El element ha estat eliminat correctament
+          edit:
+            title: Edita element
+            update: Actualitza element
+          index:
+            title: Evolució del projecte
+          new:
+            create: Crea element
+            title: Nou element
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest element
+            success: El element ha estat actualitzat correctament
       models:
         result:
           fields:
@@ -119,6 +142,10 @@ ca:
             key: Key
             name: Nom
             progress: Progrés
+        timeline_entry:
+          fields:
+            description: Descripció
+            entry_date: Data
       results:
         count:
           results_count:
@@ -146,6 +173,8 @@ ca:
             meetings: Trobades
             proposals: Propostes
             votes: Suports
+        timeline:
+          title: Evolució del projecte
     features:
       accountability:
         name: Seguiment

@@ -71,6 +71,13 @@ Decidim.register_feature(:accountability) do |feature|
             end
           )
 
+          rand(0..5).times do
+            child_result.timeline_entries.create!(
+              entry_date: (child_result.start_date..child_result.end_date).sample,
+              description: Decidim::Faker::Localized.sentence(2)
+            )
+          end
+
           Decidim::Comments::Seed.comments_for(child_result)
         end
       end

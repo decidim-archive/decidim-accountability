@@ -21,11 +21,12 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          current_proposal_ids = result.linked_resources(:proposals, "included_proposals").pluck(:id)
+          current_proposal_ids = result.linked_resources(:proposals, "included_proposals").pluck(:id).sort
+          form_proposal_ids = form.proposal_ids.reject(&:blank?).sort
 
           transaction do
             update_result
-            result.touch if form.proposal_ids.sort != current_proposal_ids.sort
+            result.touch if form_proposal_ids != current_proposal_ids
             link_proposals
             link_meetings
           end

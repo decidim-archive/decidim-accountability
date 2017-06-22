@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      # This class holds a Form to create/update results from Decidim's admin panel.
+      # This class holds a Form to create/update statuses from Decidim's admin panel.
       class StatusForm < Decidim::Form
         include TranslatableAttributes
         include TranslationsHelper

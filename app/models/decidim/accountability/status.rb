@@ -2,8 +2,8 @@
 
 module Decidim
   module Accountability
-    # The data store for a Result in the Decidim::Accountability component. It stores a
-    # title, description and any other useful information to render a custom result.
+    # The data store for a Status in the Decidim::Accountability component. It stores a
+    # key, a localized name, a localized description and and associated progress number.
     class Status < Accountability::ApplicationRecord
       include Decidim::HasFeature
 

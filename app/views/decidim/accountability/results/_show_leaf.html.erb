@@ -46,6 +46,13 @@
               <div class="result-meta--data"><%= translated_attribute(result.status.name) %></div>
             <% end %>
           </div>
+
+          <div class="result-meta">
+            <% if result.status && translated_attribute(result.status.description).present? %>
+              <div class="result-meta--label"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data"><%= translated_attribute(result.status.description) %></div>
+            <% end %>
+          </div>
         </div>
       </div>
 

@@ -34,6 +34,10 @@
                 <div class="progress-figure heading3">
                   <%= display_percentage progress_calculator(current_scope, category.id) %>
                 </div>
+
+                <div>
+                  <%= display_count count_calculator(current_scope, category.id) %>
+                </div>
               </div>
             </div>
 
@@ -46,6 +50,10 @@
 
                       <div class="progress-figure heading3">
                         <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
+                      </div>
+
+                      <div>
+                        <%= display_count count_calculator(current_scope, subcategory.id) %>
                       </div>
                     </div>
                   <% end %>

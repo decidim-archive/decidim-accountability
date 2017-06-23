@@ -14,6 +14,10 @@ module Decidim
         number_to_percentage(number, precision: 1, strip_insignificant_zeros: true, locale: I18n.locale)
       end
 
+      def display_count(count)
+        heading_leaf_level_results(count)
+      end
+
       def active_class_if_current(scope)
         %Q{class=active} if scope.to_s == current_scope.to_s
       end

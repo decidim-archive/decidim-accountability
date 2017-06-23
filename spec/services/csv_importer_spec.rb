@@ -72,7 +72,7 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.scope).to be_present
         expect(result.decidim_scope_id).to eq(1)
         expect(result.category).to be_present
-        expect(result.decidim_category_id).to eq(1)
+        expect(result.category.id).to eq(1)
         expect(result.start_date).to eq(Date.new(2017,6,23))
         expect(result.end_date).to eq(Date.new(2017,7,30))
         expect(result.status).to be_present

@@ -20,8 +20,8 @@ en:
         progress: Progress
       template_texts:
         categories_label: Name for "Categories"
-        heading_leaf_level_results: Name for "Results"
-        heading_parent_level_results: Name for "Projects"
+        heading_leaf_level_results: Name for "Projects"
+        heading_parent_level_results: Name for "Results"
         intro: Intro text
         subcategories_label: Name for "Subcategories"
       timeline_entry:

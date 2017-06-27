@@ -15,9 +15,9 @@ module Decidim
       feature_manifest_name "accountability"
 
       has_many :children, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :parent, dependent: :destroy
-      belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :children, counter_cache: :children_count
+      belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :children, optional: true, counter_cache: :children_count
 
-      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results
+      belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results, optional: true
 
       has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id", class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 

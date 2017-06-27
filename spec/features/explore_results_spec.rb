@@ -23,9 +23,12 @@ describe "Explore results", type: :feature do
   context "home" do
     let(:path) { decidim_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
-    it "shows all categories and subcategories" do
+    it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
-        expect(page).to have_content(translated category.name)
+        results_count = Decidim::Accountability::ResultsCalculator.new(feature, nil, category.id).count
+        if category.subcategories.size > 0 || results_count > 0
+          expect(page).to have_content(translated category.name)
+        end
       end
     end
   end

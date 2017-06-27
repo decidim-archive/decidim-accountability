@@ -30,6 +30,14 @@ describe "Explore results", type: :feature do
     end
   end
 
+  context "csv" do
+    let(:path) { decidim_accountability.csv_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+
+    it "downloads a csv file" do
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   context "index" do
     let(:path) { decidim_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
@@ -51,15 +59,6 @@ describe "Explore results", type: :feature do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
       expect(page).to have_content(result.reference)
-
-      within ".section.view-side" do
-        expect(page).to have_content(/Proposals/i)
-        expect(page).to have_content(/Meetings/i)
-        expect(page).to have_content(/Comments/i)
-        expect(page).to have_content(/Attendees/i)
-        expect(page).to have_content(/Supports/i)
-        expect(page).to have_content(/Contributions/i)
-      end
     end
 
     context "without category or scope" do

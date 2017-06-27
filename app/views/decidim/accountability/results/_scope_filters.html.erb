@@ -1,6 +1,6 @@
 <div class="scope-filters section">
   <% if current_organization.scopes.any? && !current_participatory_process.scope %>
-    <%= t('results.filters.scopes', scope: "decidim.accountability") %>
+    <div><%= t('results.filters.scopes', scope: "decidim.accountability") %></div>
 
     <ul class="tags tags--action">
       <li <%= active_class_if_current(nil) %>><%= link_to t("results.filters.all", scope: "decidim.accountability"), decidim_accountability.send(url_method, filter: { category_id: category.try(:id) }) %></li>

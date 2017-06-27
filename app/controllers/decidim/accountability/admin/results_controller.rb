@@ -9,6 +9,7 @@ module Decidim
 
         def new
           @form = form(ResultForm).instance
+          @form.parent_id = params[:parent_id]
         end
 
         def create

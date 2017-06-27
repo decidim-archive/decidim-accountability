@@ -27,6 +27,11 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
+        validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
+        validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
+
+        validate :external_id_uniqueness
+
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
         end
@@ -49,6 +54,22 @@ module Decidim
 
         def category
           @category ||= context.current_feature.categories.where(id: decidim_category_id).first
+        end
+
+        def parent
+          @parent ||= Decidim::Accountability::Result.where(feature: current_feature, id: parent_id).first
+        end
+
+        def status
+          @status ||= Decidim::Accountability::Status.where(feature: current_feature, id: decidim_accountability_status_id).first
+        end
+
+        private
+
+        def external_id_uniqueness
+          return if external_id.blank?
+          existing_with_external_id = Decidim::Accountability::Result.find_by(feature: current_feature, external_id: external_id)
+          errors.add(:external_id, :taken) if existing_with_external_id && existing_with_external_id.id != id
         end
       end
     end

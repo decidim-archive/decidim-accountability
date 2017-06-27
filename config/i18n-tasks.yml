@@ -7,3 +7,4 @@ ignore_unused:
 - "decidim.accountability.models.project.valid_statuses.*"
 - activerecord.attributes.*
 - activemodel.attributes.*
+- activemodel.errors.*

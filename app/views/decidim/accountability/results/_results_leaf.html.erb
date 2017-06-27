@@ -17,14 +17,20 @@
             </h5>
 
             <div class="text-small card--meta">
+              <% if result.start_date %>
                 <strong><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></strong>
                 <span><%= result.start_date %></span>
+              <% end %>
 
+              <% if result.end_date %>
                 <strong><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></strong>
                 <span><%= result.end_date %></span>
+              <% end %>
 
+              <% if result.status %>
                 <strong><%= t("models.result.fields.status", scope: "decidim.accountability") %></strong>
                 <span><%= translated_attribute(result.status.name) %></span>
+              <% end %>
             </div>
           <% end %>
 

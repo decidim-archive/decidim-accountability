@@ -31,9 +31,15 @@ FactoryGirl.define do
     feature { build(:feature, manifest_name: "accountability") }
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    start_date { Date.yesterday }
-    end_date { Date.tomorrow }
+    start_date { "12/7/2017" }
+    end_date { "30/9/2017" }
     status { create :accountability_status, feature: feature }
     progress { rand(1..100) }
+  end
+
+  factory :accountability_timeline_entry, class: Decidim::Accountability::TimelineEntry do
+    result { build(:accountability_result) }
+    entry_date { "12/7/2017" }
+    description { Decidim::Faker::Localized.sentence(2) }
   end
 end

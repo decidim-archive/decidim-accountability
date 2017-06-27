@@ -11,6 +11,10 @@ module Decidim
       def home
       end
 
+      def csv
+        send_data CSVExporter.new(current_feature).export, filename: "results.csv", disposition: "attachment"
+      end
+
       private
 
       def results
@@ -19,7 +23,7 @@ module Decidim
       end
 
       def result
-        @result ||= Result.where(feature: current_feature).find(params[:id])
+        @result ||= Result.includes(:timeline_entries).where(feature: current_feature).find(params[:id])
       end
 
       def stats_calculator

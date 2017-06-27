@@ -13,6 +13,7 @@ module Decidim
 
       routes do
         resources :results, only: [:index, :show]
+        get "csv", to: "results#csv"
         root to: "results#home"
       end
 

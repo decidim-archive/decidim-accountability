@@ -14,8 +14,9 @@ describe "Process admin manages results", type: :feature do
   end
 end
 
-describe "Admin manages child results", type: :feature do
+describe "Process admin manages child results", type: :feature do
   include_context "admin"
+  let(:user) { process_admin }
   it_behaves_like "manage child results"
 
   before do
@@ -26,8 +27,9 @@ describe "Admin manages child results", type: :feature do
   end
 end
 
-describe "Admin manages statuses", type: :feature do
+describe "Process admin manages statuses", type: :feature do
   include_context "admin"
+  let(:user) { process_admin }
   it_behaves_like "manage statuses"
 
   before do

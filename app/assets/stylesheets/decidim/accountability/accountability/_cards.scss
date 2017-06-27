@@ -1,6 +1,9 @@
 .accountability {
-  .card--list__text {
+  .card__link--block {
     display: block;
+  }
+  .card--list__data {
+    min-width: 7rem;
   }
   .card--meta {
     span {

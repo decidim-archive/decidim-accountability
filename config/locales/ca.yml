@@ -3,6 +3,7 @@ ca:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
@@ -11,7 +12,6 @@ ca:
         progress: Progrés
         proposal_ids: Propostes incloses
         start_date: Inici
-        status: Estat
         title: Títol
       status:
         description: Descripció
@@ -19,26 +19,50 @@ ca:
         name: Nom
         progress: Progrés
       template_texts:
-        categories_label: Categorias
-        heading_leaf_level_results: Heading for leaf level results
-        heading_parent_level_results: Heading for parent level results
+        categories_label: Nom per "Categorias"
+        heading_leaf_level_results: Nom per "Projectes"
+        heading_parent_level_results: Nom per "Resultats"
         intro: Texto de introducció
-        subcategories_label: Subcategorias
+        subcategories_label: Nom per "Subcategorias"
+      timeline_entry:
+        description: Descripció
+        entry_date: Data
+    errors:
+      models:
+        result:
+          attributes:
+            end_date:
+              invalid_date: no vàlida
+            start_date:
+              invalid_date: no vàlida
   decidim:
     accountability:
       actions:
-        confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
+        confirm_destroy: Esteu segur que voleu suprimir aquest %{name}?
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
         preview: Previsualitzar
+        timeline_entries: Evolució del projecte
         title: Accions
       admin:
+        imports:
+          create:
+            invalid: Hi ha hagut un problema en importar aquest fitxer
+            not_found: No s'ha trobat un resultat amb result_id %{result_id}
+            success: El fitxer ha estat importat correctament
+          new:
+            errors: Errors
+            import: Import
+            row_number: Fila
+            title: Importar resultats des de CSV
         models:
           result:
             name: Resultat
           status:
             name: Estat
+          timeline_entry:
+            name: Element
         results:
           create:
             invalid: Hi ha hagut un problema en crear aquest resultat
@@ -58,9 +82,9 @@ ca:
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
-            results: Resultats
+            import_csv: Importa CSV
             statuses: Estats
-            template_texts: Template Texts
+            template_texts: Portada
         statuses:
           create:
             invalid: Hi ha hagut un problema en crear aquest estat
@@ -87,6 +111,23 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar les texts
             success: Texts ha estat actualitzat correctament
+        timeline_entries:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest element
+            success: El element ha estat creat correctament
+          destroy:
+            success: El element ha estat eliminat correctament
+          edit:
+            title: Edita element
+            update: Actualitza element
+          index:
+            title: Evolució del projecte
+          new:
+            create: Crea element
+            title: Nou element
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest element
+            success: El element ha estat actualitzat correctament
       models:
         result:
           fields:
@@ -101,6 +142,10 @@ ca:
             key: Key
             name: Nom
             progress: Progrés
+        timeline_entry:
+          fields:
+            description: Descripció
+            entry_date: Data
       results:
         count:
           results_count:
@@ -113,10 +158,13 @@ ca:
         home:
           categories_label: Categorias
           subcategories_label: Subcategorias
+        home_header:
+          csv_download: Descarregar dades en CSV
+          global_status: Estat de ejecució global
         nav_tree:
           global: Ejecució global
         search:
-          search: Cerca
+          search: Cerca actuacions
         show:
           stats:
             attendees: Assistents
@@ -125,9 +173,11 @@ ca:
             meetings: Trobades
             proposals: Propostes
             votes: Suports
+        timeline:
+          title: Evolució del projecte
     features:
       accountability:
-        name: Rendició de comptes
+        name: Seguiment
         settings:
           global:
             comments_enabled: Comentaris habilitats

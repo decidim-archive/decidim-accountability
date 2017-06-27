@@ -5,7 +5,6 @@ module Decidim
     # This class handles the calculation of progress for a set of results
     class ProgressCalculator
       # Public: Initializes the service.
-      # result - The result from which to calculate the stats.
       def initialize(feature, scope_id, category_id)
         @feature = feature
         @scope_id = scope_id

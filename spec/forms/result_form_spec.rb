@@ -22,9 +22,12 @@ describe Decidim::Accountability::Admin::ResultForm do
   let(:scope_id) { scope.id }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:category_id) { category.id }
-  let(:start_date) { Date.yesterday }
-  let(:end_date) { Date.tomorrow }
+  let(:parent) { create :accountability_result, scope: scope, feature: current_feature }
+  let(:parent_id) { parent.id }
+  let(:start_date) { "12/3/2017" }
+  let(:end_date) { "21/6/2017" }
   let(:status) { create :accountability_status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+  let(:status_id) { status.id }
   let(:progress) { 89 }
   let(:external_id) { "ID_in_other_system" }
 
@@ -32,11 +35,12 @@ describe Decidim::Accountability::Admin::ResultForm do
     {
       decidim_scope_id: scope_id,
       decidim_category_id: category_id,
+      parent_id: parent_id,
       title_en: title[:en],
       description_en: description[:en],
       start_date: start_date,
       end_date: end_date,
-      decidim_accountability_status_id: status.id,
+      decidim_accountability_status_id: status_id,
       progress: progress,
       external_id: external_id
     }
@@ -66,6 +70,25 @@ describe Decidim::Accountability::Admin::ResultForm do
 
   describe "when the category does not exist" do
     let(:category_id) { category.id + 10 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when the parent does not exist" do
+    let(:parent_id) { parent.id + 10 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when the status does not exist" do
+    let(:status_id) { status.id + 10 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when external_id is already taken" do
+    let!(:existing_result) { create(:accountability_result, feature: current_feature, external_id: "some_id") }
+    let(:external_id) { "some_id" }
 
     it { is_expected.not_to be_valid }
   end

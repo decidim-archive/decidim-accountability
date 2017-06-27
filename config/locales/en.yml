@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: status
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
@@ -11,7 +12,6 @@ en:
         progress: Progress
         proposal_ids: Included proposals
         start_date: Start date
-        status: status
         title: Title
       status:
         description: Description
@@ -19,26 +19,50 @@ en:
         name: Name
         progress: Progress
       template_texts:
-        categories_label: Categories label
-        heading_leaf_level_results: Heading for leaf level results
-        heading_parent_level_results: Heading for parent level results
+        categories_label: Name for "Categories"
+        heading_leaf_level_results: Name for "Projects"
+        heading_parent_level_results: Name for "Results"
         intro: Intro text
-        subcategories_label: Subcategories label
+        subcategories_label: Name for "Subcategories"
+      timeline_entry:
+        description: Description
+        entry_date: Date
+    errors:
+      models:
+        result:
+          attributes:
+            end_date:
+              invalid_date: is invalid
+            start_date:
+              invalid_date: is invalid
   decidim:
     accountability:
       actions:
-        confirm_destroy: Are you sure you want to delete this result?
+        confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
         new: New %{name}
         preview: Preview
+        timeline_entries: Project evolution
         title: Actions
       admin:
+        imports:
+          create:
+            invalid: There's been a problem importing this file
+            not_found: No result found with result_id %{result_id}
+            success: File successfully imported
+          new:
+            errors: Errors
+            import: Import
+            row_number: Row
+            title: Import results from CSV
         models:
           result:
             name: Result
           status:
             name: Status
+          timeline_entry:
+            name: Timeline entry
         results:
           create:
             invalid: There's been a problem creating this result
@@ -58,7 +82,7 @@ en:
             success: Result successfully updated
         shared:
           subnav:
-            results: Results
+            import_csv: Import CSV
             statuses: Statuses
             template_texts: Template Texts
         statuses:
@@ -87,6 +111,23 @@ en:
           update:
             invalid: There's been a problem updating template texts
             success: Template texts successfully updated
+        timeline_entries:
+          create:
+            invalid: There's been a problem creating this entry
+            success: Entry successfully created
+          destroy:
+            success: Entry successfully deleted
+          edit:
+            title: Edit entry
+            update: Update entry
+          index:
+            title: Project timeline entries
+          new:
+            create: Create entry
+            title: New entry
+          update:
+            invalid: There's been a problem updating this entry
+            success: Entry successfully updated
       models:
         result:
           fields:
@@ -101,6 +142,10 @@ en:
             key: Key
             name: Name
             progress: Progress
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
       results:
         count:
           results_count:
@@ -113,10 +158,13 @@ en:
         home:
           categories_label: Categories
           subcategories_label: Subcategories
+        home_header:
+          csv_download: Download data in CSV
+          global_status: Global execution status
         nav_tree:
           global: Global execution
         search:
-          search: Search
+          search: Search for actions
         show:
           stats:
             attendees: Attendees
@@ -125,6 +173,8 @@ en:
             meetings: Meetings
             proposals: Proposals
             votes: Supports
+        timeline:
+          title: Project evolution
     features:
       accountability:
         name: Accountability

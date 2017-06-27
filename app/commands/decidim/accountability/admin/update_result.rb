@@ -21,8 +21,12 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
+          current_proposal_ids = result.linked_resources(:proposals, "included_proposals").pluck(:id).sort
+          form_proposal_ids = form.proposal_ids.reject(&:blank?).sort
+
           transaction do
             update_result
+            result.touch if form_proposal_ids != current_proposal_ids
             link_proposals
             link_meetings
           end
@@ -41,6 +45,7 @@ module Decidim
             parent_id: @form.parent_id,
             title: @form.title,
             description: @form.description,
+            external_id: @form.external_id,
             start_date: @form.start_date,
             end_date: @form.end_date,
             progress: @form.progress,

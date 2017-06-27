@@ -37,7 +37,7 @@ describe Decidim::Accountability::Admin::CreateStatus do
   context "when everything is ok" do
     let(:status) { Decidim::Accountability::Status.last }
 
-    it "creates the project" do
+    it "creates the status" do
       expect { subject.call }.to change { Decidim::Accountability::Status.count }.by(1)
     end
 

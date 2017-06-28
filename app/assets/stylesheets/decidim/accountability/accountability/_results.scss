@@ -72,17 +72,20 @@
 
 .result-view {
   .title {
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 1rem;
 
     .icon {
       fill: $secondary;
       width: 1.5rem;
       height: 1.5rem;
-      margin-right: 0.25rem;
+      margin-right: 0.75rem;
+      margin-top: 0.5rem;
     }
 
     h2 {
-      display: inline-block;
+      display: inline;
     }
   }
 
@@ -109,6 +112,10 @@
       }
     }
   }
+  
+  .result-description div {
+    margin-bottom: 1rem;
+  }
 
   .result-meta {
     margin-bottom: 0.5rem;
@@ -116,7 +123,7 @@
 
     .result-meta--label {
       display: inline-block;
-      width: 50%;
+      width: 30%;
       font-weight: 600;
       color: lighten($dark-gray, 30);
     }

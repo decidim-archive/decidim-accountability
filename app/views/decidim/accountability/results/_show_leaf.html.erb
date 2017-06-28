@@ -19,12 +19,12 @@
           </div>
 
           <div class="progress">
-            <div class="progress-meter" style="width:<%= display_percentage result.progress %>"></div>
+            <div class="progress-meter" style="width:<%= result.progress %>%"></div>
           </div>
         </div>
       </div>
 
-      <div class="columns mediumlarge-3 mediumlarge-pull-5 end">
+      <div class="columns mediumlarge-6 mediumlarge-pull-5 end">
         <div class="section">
           <div class="result-meta">
             <% if result.start_date %>
@@ -59,7 +59,7 @@
       <div class="small-12 columns">
         <hr>
 
-        <div class="section">
+        <div class="section result-description">
           <%== translated_attribute result.description %>
           <%= render partial: "tags", locals: { result: result } %>
         </div>

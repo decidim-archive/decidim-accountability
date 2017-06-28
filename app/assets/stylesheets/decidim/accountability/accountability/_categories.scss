@@ -41,28 +41,54 @@
         .progress {
           margin-bottom: 0.5rem;
         }
+        .progress-info {
+          position: relative;
+          margin-bottom: 1.5rem;
+          
+          .progress-figure {
+            display: inline-block;
+          }
+          .category--count {
+            position: absolute;
+            right: 0;
+            top: 0.5rem;
+            color: lighten($dark-gray, 50);
+          }
+        }
       }
       
-      .category--line {
-        background: $light-gray-dark;
-        border-radius: 4px;
-        min-height: 7.5rem;
-        padding: 1rem;
-        margin-bottom: 1.875rem;
-        position: relative;
-        
-        strong {
-          font-weight: 600;
-          color: $secondary;
+      .card__link {
+        .category--line {
+          background: $light-gray-dark;
+          border-radius: 4px;
+          min-height: 7.5rem;
+          padding: 1rem;
+          margin-bottom: 1.875rem;
+          position: relative;
+          
+          strong {
+            font-weight: 600;
+            color: $secondary;
+          }
+          
+          .progress-figure {
+            position: absolute;
+            bottom: 1rem;
+          }
+          .category--count {
+            color: lighten($dark-gray, 50);
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+          }
         }
-        
-        .progress-figure {
-          position: absolute;
-          bottom: 1rem;
-        }
-        
-        &:hover strong {
-          color: scale-color($anchor-color, $lightness: -14%);
+        &:hover {
+          .category--count {
+            color: lighten($dark-gray, 50);
+          }
+          strong {
+            color: scale-color($anchor-color, $lightness: -14%);
+          }
         }
       }
     }

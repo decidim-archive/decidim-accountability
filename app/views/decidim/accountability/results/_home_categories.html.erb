@@ -30,13 +30,14 @@
                 <div class="progress">
                   <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
                 </div>
-
-                <div class="progress-figure heading3">
-                  <%= display_percentage progress_calculator(current_scope, category.id) %>
-                </div>
-
-                <div>
-                  <%= display_count count_calculator(current_scope, category.id) %>
+                
+                <div class="progress-info">
+                  <div class="progress-figure heading3">
+                    <%= display_percentage progress_calculator(current_scope, category.id) %>
+                  </div>
+                  <div class="category--count">
+                    <%= display_count count_calculator(current_scope, category.id) %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -52,7 +53,7 @@
                         <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
                       </div>
 
-                      <div>
+                      <div class="category--count">
                         <%= display_count count_calculator(current_scope, subcategory.id) %>
                       </div>
                     </div>

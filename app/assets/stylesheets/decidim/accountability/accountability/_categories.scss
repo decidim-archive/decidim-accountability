@@ -92,6 +92,14 @@
         }
       }
     }
+
+    .category--elements.active {
+      display: block !important;
+      
+      .medium-4:first-child {
+        margin-top: 1rem;
+      }
+    }
     
     .progress-figure {
       color: lighten($dark-gray, 50);

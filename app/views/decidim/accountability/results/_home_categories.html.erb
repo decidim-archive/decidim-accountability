@@ -44,7 +44,7 @@
             <div class="category--elements show-for-medium medium-8 columns">
               <div class="row">
                 <% category.subcategories.each do |subcategory| %>
-                  <%= link_to results_path(filter: { category_id: subcategory, scope_id: current_scope }), class: "small-4 columns end card__link card__link--block" do %>
+                  <%= link_to results_path(filter: { category_id: subcategory, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block" do %>
                     <div class="category--line">
                       <strong><%= translated_attribute(subcategory.name) %></strong>
 

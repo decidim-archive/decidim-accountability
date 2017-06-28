@@ -10,7 +10,7 @@ RSpec.shared_examples "manage statuses" do
     within ".edit_status" do
       fill_in_i18n(
         :status_name,
-        "#name-tabs",
+        "#status-name-tabs",
         en: "My new name",
         es: "Mi nuevo nombre",
         ca: "El meu nou nom"
@@ -36,7 +36,7 @@ RSpec.shared_examples "manage statuses" do
 
       fill_in_i18n(
         :status_name,
-        "#name-tabs",
+        "#status-name-tabs",
         en: "A longer name",
         es: "Nombre más larga",
         ca: "Nom més llarga"
@@ -44,7 +44,7 @@ RSpec.shared_examples "manage statuses" do
 
       fill_in_i18n(
         :status_description,
-        "#description-tabs",
+        "#status-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"

@@ -6,7 +6,7 @@ module Decidim
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
 
-      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :current_scope, :template_texts
+      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope, :template_texts
 
       def home
       end
@@ -57,7 +57,11 @@ module Decidim
       end
 
       def progress_calculator(scope_id, category_id)
-        Decidim::Accountability::ProgressCalculator.new(current_feature, scope_id, category_id).progress
+        Decidim::Accountability::ResultsCalculator.new(current_feature, scope_id, category_id).progress
+      end
+
+      def count_calculator(scope_id, category_id)
+        Decidim::Accountability::ResultsCalculator.new(current_feature, scope_id, category_id).count
       end
 
       def current_scope

@@ -55,7 +55,7 @@ module Decidim
       def row_for_result(result, available_locales)
         row = [
           result.id,
-          result.decidim_category_id,
+          result.category.try(:id),
           result.decidim_scope_id,
           result.parent_id,
           result.external_id,

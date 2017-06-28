@@ -16,7 +16,7 @@
               <%= translated_attribute result.title %>
             </h5>
 
-            <span class="text-small"><strong><%= result.children.count %></strong> proyectos</span>
+            <span class="text-small"><%= heading_leaf_level_results(result.children.count) %></span>
           <% end %>
 
           <div class="card--list__data">

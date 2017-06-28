@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <%= render partial: "timeline", locals: { result: result } %>
+      <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>
     </div>
   </div>
 

@@ -24,33 +24,33 @@
         </div>
       </div>
 
-      <div class="columns mediumlarge-6 mediumlarge-pull-5 end">
+      <div class="columns mediumlarge-5 mediumlarge-pull-5 end">
         <div class="section">
-          <div class="result-meta">
+          <div class="result-meta row">
             <% if result.start_date %>
-              <div class="result-meta--label"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data"><%= result.start_date %></div>
+              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-8 columns"><%= result.start_date %></div>
             <% end %>
           </div>
 
-          <div class="result-meta">
+          <div class="result-meta row">
             <% if result.end_date %>
-              <div class="result-meta--label"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data"><%= result.end_date %></div>
+              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-8 columns"><%= result.end_date %></div>
             <% end %>
           </div>
 
-          <div class="result-meta">
+          <div class="result-meta row">
             <% if result.status %>
-              <div class="result-meta--label"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data"><%= translated_attribute(result.status.name) %></div>
+              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-8 columns"><%= translated_attribute(result.status.name) %></div>
             <% end %>
           </div>
 
-          <div class="result-meta">
+          <div class="result-meta row">
             <% if result.status && translated_attribute(result.status.description).present? %>
-              <div class="result-meta--label"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data"><%= translated_attribute(result.status.description) %></div>
+              <div class="result-meta--label medium-4 columns"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-8 columns"><%= translated_attribute(result.status.description) %></div>
             <% end %>
           </div>
         </div>

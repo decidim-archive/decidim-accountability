@@ -51,14 +51,18 @@
         margin-bottom: 1.875rem;
         position: relative;
         
-        a {
+        strong {
           font-weight: 600;
-          color: $dark-gray;
+          color: $secondary;
         }
         
         .progress-figure {
           position: absolute;
           bottom: 1rem;
+        }
+        
+        &:hover strong {
+          color: scale-color($anchor-color, $lightness: -14%);
         }
       }
     }

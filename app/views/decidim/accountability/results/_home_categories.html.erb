@@ -21,7 +21,7 @@
     <div class="row">
       <div class="small-12 columns">
         <% first_class_categories.each do |category| %>
-          <% next unless category.subcategories.size > 0 || (category_results_count = count_calculator(current_scope, category.id)) > 0 %>
+          <% next unless (category_results_count = count_calculator(current_scope, category.id)) > 0 || category.subcategories.size > 0 %>
           <div class="categories--group row">
             <div class="category--section small-12 medium-4 columns">
               <div class="category--title">
@@ -31,7 +31,7 @@
                 <div class="progress">
                   <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
                 </div>
-                
+
                 <div class="progress-info">
                   <div class="progress-figure heading3">
                     <%= display_percentage progress_calculator(current_scope, category.id) %>

@@ -71,9 +71,9 @@ Decidim.register_feature(:accountability) do |feature|
             end
           )
 
-          rand(0..5).times do
+          rand(0..5).times do |i|
             child_result.timeline_entries.create!(
-              entry_date: (child_result.start_date..child_result.end_date).sample,
+              entry_date: child_result.start_date + i.days,
               description: Decidim::Faker::Localized.sentence(2)
             )
           end

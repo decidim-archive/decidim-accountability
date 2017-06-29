@@ -3,11 +3,11 @@
     <%= render partial: "scope_filters", locals: { url_method: :results_path} %>
   </div>
 
-  <div class="small-12 medium-3 columns">
-    <%= render partial: "nav_tree", locals: { category: category, result: nil} %>
+  <div class="small-12 columns">
+    <%= render partial: "nav_breadcrumb", locals: { category: category, result: nil} %>
   </div>
 
-  <div class="small-12 medium-9 columns">
+  <div class="small-12 columns end">
     <% if results.any?{|r| r.children.any? } %>
       <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
     <% else %>

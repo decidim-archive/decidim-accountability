@@ -1,0 +1,43 @@
+<div class="lines-breadcrumb">
+  <%= link_to t(".global"), decidim_accountability.root_path %>
+  <span class="percentage"><%= display_percentage progress_calculator(current_scope, nil) %></span>
+
+  <% if category.present? && !category.parent.present? %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
+      <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+    </div>
+    <% if result.present? %>
+      <span class="breadcrumb--separator">></span>
+      <div>
+        <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
+        <span class="percentage"><%= display_percentage result.progress %></span>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if category.present? && category.parent.present? %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(category.parent.name), decidim_accountability.results_path(filter: { category_id: category.parent_id }) %>
+      <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.parent_id) %></span>
+    </div>
+
+    <% if category.present? %>
+      <span class="breadcrumb--separator">></span>
+      <div>
+        <%= link_to translated_attribute(category.name), decidim_accountability.results_path(filter: { category_id: category.id }) %>
+        <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+      </div>
+    <% end %>
+    
+    <% if result.present? %>
+      <span class="breadcrumb--separator">></span>
+      <div>
+        <%= link_to translated_attribute(result.title), decidim_accountability.result_path(result) %>
+        <span class="percentage"><%= display_percentage result.progress %></span>
+      </div>
+    <% end %>
+  <% end %>
+</div>

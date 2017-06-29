@@ -63,11 +63,6 @@
   .title-action {
     margin-bottom: 0.5rem;
   }
-  .line-stats {
-    @include breakpoint(medium) {
-      margin-top: 2.65rem;
-    }
-  }
 }
 
 .result-view {

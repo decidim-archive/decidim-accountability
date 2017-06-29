@@ -161,7 +161,7 @@ en:
         home_header:
           csv_download: Download data in CSV
           global_status: Global execution status
-        nav_tree:
+        nav_breadcrumb:
           global: Global execution
         search:
           search: Search for actions

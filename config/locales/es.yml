@@ -161,7 +161,7 @@ es:
         home_header:
           csv_download: Descargar datos en CSV
           global_status: Estado de ejecución global
-        nav_tree:
+        nav_breadcrumb:
           global: Ejecución global
         search:
           search: Buscar actuaciones

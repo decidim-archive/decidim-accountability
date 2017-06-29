@@ -1,15 +1,15 @@
 <div class="row accountability result-view">
-  <div class="small-12 medium-3 columns">
-    <%= render partial: "decidim/accountability/results/nav_tree", locals: { category: result.parent.try(:category) || result.category, result: result.parent || result} %>
+  <div class="small-12 columns">
+    <%= render partial: "decidim/accountability/results/nav_breadcrumb", locals: { category: result.parent.try(:category) || result.category, result: result.parent || result} %>
   </div>
-  <div class="small-12 medium-9 columns">
+  <div class="small-12 columns">
     <div class="title">
       <%= icon("proposals", class: "icon", aria_label: t("models.result.fields.title", scope: "decidim.accountability"), role: "img") %>
       <h2 class="heading2"><%= translated_attribute result.title %></h2>
     </div>
 
     <div class="row">
-      <div class="columns section mediumlarge-5 mediumlarge-push-7 end">
+      <div class="columns section mediumlarge-3 mediumlarge-push-9">
         <div class="progress-level">
           <div class="progress-label">
             <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
@@ -24,46 +24,48 @@
         </div>
       </div>
 
-      <div class="columns mediumlarge-5 mediumlarge-pull-5 end">
+      <div class="columns mediumlarge-9 mediumlarge-pull-3">
         <div class="section">
           <div class="result-meta row">
             <% if result.start_date %>
-              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-8 columns"><%= result.start_date %></div>
+              <div class="result-meta--label medium-2 columns"><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-10 columns"><%= result.start_date %></div>
             <% end %>
           </div>
 
           <div class="result-meta row">
             <% if result.end_date %>
-              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-8 columns"><%= result.end_date %></div>
+              <div class="result-meta--label medium-2 columns"><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-10 columns"><%= result.end_date %></div>
             <% end %>
           </div>
 
           <div class="result-meta row">
             <% if result.status %>
-              <div class="result-meta--label medium-4 columns"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-8 columns"><%= translated_attribute(result.status.name) %></div>
+              <div class="result-meta--label medium-2 columns"><%= t("models.result.fields.status", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-10 columns"><%= translated_attribute(result.status.name) %></div>
             <% end %>
           </div>
 
           <div class="result-meta row">
             <% if result.status && translated_attribute(result.status.description).present? %>
-              <div class="result-meta--label medium-4 columns"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
-              <div class="result-meta--data medium-8 columns"><%= translated_attribute(result.status.description) %></div>
+              <div class="result-meta--label medium-2 columns"><%= t("models.status.fields.description", scope: "decidim.accountability") %></div>
+              <div class="result-meta--data medium-10 columns"><%= translated_attribute(result.status.description) %></div>
             <% end %>
           </div>
         </div>
       </div>
-
-      <div class="small-12 columns">
-        <hr>
-
+      
+      <hr>
+      
+      <div class="small-12 mediumlarge-8 large-9 columns">
         <div class="section result-description">
           <%== translated_attribute result.description %>
           <%= render partial: "tags", locals: { result: result } %>
         </div>
       </div>
+      
+      <%= render partial: "stats_box" %>
 
       <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>
     </div>

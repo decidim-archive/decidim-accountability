@@ -2,7 +2,7 @@
   <div class="small-12 columns section">
     <div class="row">
       <div class="small-12 medium-3 columns">
-        <%= render partial: "nav_tree", locals: { category: result.try(:category), result: result} %>
+        <%= render partial: "nav_breadcrumb", locals: { category: result.try(:category), result: result} %>
       </div>
       <div class="small-12 medium-9 columns">
         <h2 class="heading2"><%= translated_attribute result.title %></h2>

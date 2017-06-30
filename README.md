@@ -10,6 +10,12 @@ It also has a CSV importer for results, you can read [here](doc/csv_importer.md)
 ## Usage
 Accountability will be available as a Feature for a Participatory Process.
 
+To migrate results from Decidim::Results to Decidim::Accountability you can use a rake task like [this one in decidim-barcelona](https://github.com/PopulateTools/decidim-barcelona/blob/accountability/lib/tasks/migrate_results_to_accountability.rake). The task asumes that the accountability feature for the process has already been created. It takes a process ID as an argument, and defaults to 1 if none is provided:
+```bash
+$ bundle exec rake migrate:results_to_accountability[PROCESS_ID]
+``` 
+
+
 ## Installation
 Add this line to your application's Gemfile:
 

@@ -8,7 +8,7 @@
   </div>
 
   <div class="small-12 columns end">
-    <% if results.any?{|r| r.children.any? } %>
+    <% if results.any?{|r| r.children_count > 0 } %>
       <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
     <% else %>
       <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>

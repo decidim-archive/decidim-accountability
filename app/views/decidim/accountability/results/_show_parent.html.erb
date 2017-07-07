@@ -14,6 +14,7 @@
         <%= render partial: "tags", locals: { result: result } %>
       </div>
     </div>
+    <%= embed_modal_for result_result_widget_url(result, format: :js) %>
 
     <%= render partial: "results_leaf", locals: { results: result.children.page(1).per(result.children_count), total_count: result.children_count } %>
 

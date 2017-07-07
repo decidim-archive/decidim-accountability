@@ -65,6 +65,9 @@
         </div>
       </div>
 
+      <%= embed_modal_for result_result_widget_url(result, format: :js) %>
+
+
       <%= render partial: "stats_box" %>
 
       <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>

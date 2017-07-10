@@ -5,6 +5,7 @@ module Decidim
     # Exposes the result resource so users can view them
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
+      helper Decidim::WidgetUrlsHelper
 
       helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope, :template_texts
 

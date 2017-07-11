@@ -21,7 +21,7 @@
     <div class="row">
       <div class="small-12 columns">
         <% first_class_categories.each do |category| %>
-          <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 || category.subcategories.empty? %>
+          <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 %>
           <div class="categories--group row">
             <div class="category--section small-12 medium-4 columns">
               <div class="category--title">

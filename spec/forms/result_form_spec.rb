@@ -119,6 +119,7 @@ describe Decidim::Accountability::Admin::ResultForm do
       it "sets the proposal_ids correctly" do
         result.link_resources([proposal], "included_proposals")
         expect(subject.proposal_ids).to eq [proposal.id]
+        expect(subject.decidim_category_id).to eq category.id
       end
     end
   end

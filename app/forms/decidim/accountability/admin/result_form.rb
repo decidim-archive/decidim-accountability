@@ -34,6 +34,7 @@ module Decidim
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
+          self.decidim_category_id = model.category.try(:id)
         end
 
         def proposals

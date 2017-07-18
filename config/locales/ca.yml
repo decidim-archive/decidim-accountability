@@ -19,11 +19,11 @@ ca:
         name: Nom
         progress: Progrés
       template_texts:
-        categories_label: Nom per "Categorias"
+        categories_label: Nom per "Categories"
         heading_leaf_level_results: Nom per "Projectes"
         heading_parent_level_results: Nom per "Resultats"
-        intro: Texto de introducció
-        subcategories_label: Nom per "Subcategorias"
+        intro: Text d'introducció
+        subcategories_label: Nom per "Subcategories"
       timeline_entry:
         description: Descripció
         entry_date: Data
@@ -38,7 +38,7 @@ ca:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Esteu segur que voleu suprimir aquest %{name}?
+        confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
@@ -156,13 +156,13 @@ ca:
           global: Global
           scopes: Àmbits
         home:
-          categories_label: Categorias
-          subcategories_label: Subcategorias
+          categories_label: Categories
+          subcategories_label: Subcategories
         home_header:
           csv_download: Descarregar dades en CSV
-          global_status: Estat de ejecució global
+          global_status: Estat d'execució global
         nav_breadcrumb:
-          global: Ejecució global
+          global: Execució global
         search:
           search: Cerca actuacions
         show:

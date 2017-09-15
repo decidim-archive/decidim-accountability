@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core"
+  s.add_dependency "decidim-core", "~> 0.6.0"
   s.add_dependency "decidim-comments"
 
   s.add_development_dependency "decidim-dev"

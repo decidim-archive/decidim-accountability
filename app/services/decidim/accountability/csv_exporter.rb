@@ -30,7 +30,7 @@ module Decidim
             "proposal_ids"
           ]
 
-          available_locales = @feature.participatory_process.organization.available_locales
+          available_locales = @feature.participatory_space.organization.available_locales
           available_locales.each do |locale|
             headers << "title_#{locale}"
             headers << "description_#{locale}"

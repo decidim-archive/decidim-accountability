@@ -3,11 +3,11 @@
     <div><%= t('results.filters.scopes', scope: "decidim.accountability") %></div>
 
     <ul class="tags tags--action">
-      <li <%= active_class_if_current(nil) %>><%= link_to t("results.filters.all", scope: "decidim.accountability"), decidim_accountability.send(url_method, filter: { category_id: category.try(:id) }) %></li>
-      <li <%= active_class_if_current("global") %>><%= link_to t("results.filters.global", scope: "decidim.accountability"), decidim_accountability.send(url_method, filter: { scope_id: "global", category_id: category.try(:id) }) %></li>
+      <li <%= active_class_if_current(nil) %>><%= link_to t("results.filters.all", scope: "decidim.accountability"), url_for(filter: { category_id: category.try(:id) }) %></li>
+      <li <%= active_class_if_current("global") %>><%= link_to t("results.filters.global", scope: "decidim.accountability"), url_for(filter: { scope_id: "global", category_id: category.try(:id) }) %></li>
 
       <% current_organization.scopes.each do |scope| %>
-        <li <%= active_class_if_current(scope.id) %>><%= link_to scope.name, decidim_accountability.send(url_method, filter: { scope_id: scope.id, category_id: category.try(:id) }) %></li>
+        <li <%= active_class_if_current(scope.id) %>><%= link_to scope.name, url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) %></li>
       <% end %>
     </ul>
   <% end %>

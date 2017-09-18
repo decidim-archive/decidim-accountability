@@ -21,7 +21,7 @@ describe "Explore results", type: :feature do
   end
 
   context "home" do
-    let(:path) { decidim_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
@@ -34,7 +34,7 @@ describe "Explore results", type: :feature do
   end
 
   context "csv" do
-    let(:path) { decidim_accountability.csv_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.csv_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "downloads a csv file" do
       expect(page.status_code).to eq(200)
@@ -42,7 +42,7 @@ describe "Explore results", type: :feature do
   end
 
   context "index" do
-    let(:path) { decidim_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "shows all results for the given process and category" do
       expect(page).to have_selector(".card--list__item", count: results_count)
@@ -54,7 +54,7 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_accountability.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
@@ -73,7 +73,7 @@ describe "Explore results", type: :feature do
     context "with a category" do
       let(:result) do
         result = results.first
-        result.category = create :category, participatory_process: participatory_process
+        result.category = create :category, participatory_space: participatory_process
         result.save
         result
       end
@@ -97,7 +97,7 @@ describe "Explore results", type: :feature do
       it "shows tags for scope" do
         expect(page).to have_selector("ul.tags.tags--result")
         within "ul.tags.tags--result" do
-          expect(page).to have_content(result.scope.name)
+          expect(page).to have_content(translated result.scope.name)
         end
       end
     end
@@ -120,7 +120,7 @@ describe "Explore results", type: :feature do
 
     context "with linked proposals" do
       let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_process: result.feature.participatory_process)
+        create(:feature, manifest_name: :proposals, participatory_space: result.feature.participatory_space)
       end
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 
@@ -140,7 +140,7 @@ describe "Explore results", type: :feature do
 
     context "with linked meetings" do
       let(:meeting_feature) do
-        create(:feature, manifest_name: :meetings, participatory_process: result.feature.participatory_process)
+        create(:feature, manifest_name: :meetings, participatory_space: result.feature.participatory_space)
       end
       let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
 

@@ -11,7 +11,7 @@ describe Decidim::Accountability::Admin::TemplateTextsForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "accountability" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
 
   let(:intro) do
     Decidim::Faker::Localized.sentence(3)

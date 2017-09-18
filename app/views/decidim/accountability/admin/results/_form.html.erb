@@ -20,9 +20,9 @@
 
     <% else %>
 
-      <% if !@form.process_scope %>
+      <% if current_participatory_space.has_subscopes? %>
         <div class="row column">
-          <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name %>
+          <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope) %>
         </div>
       <% end %>
 

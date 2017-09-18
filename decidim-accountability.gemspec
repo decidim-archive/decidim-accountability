@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "decidim-accountability"
   s.summary     = "An accountability component for decidim's participatory processes."
   s.description = s.summary
-  s.version     = "0.0.1"
+  s.version     = "0.1.0"
   s.authors     = ["Amaia Castro", "Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email       = ["amaia.castro@gmail.com", "josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license     = "AGPLv3"

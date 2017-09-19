@@ -11,7 +11,7 @@ describe Decidim::Accountability::Admin::StatusForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "accountability" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
   let(:name) do
     Decidim::Faker::Localized.word
   end

@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Accountability::CSVExporter do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "accountability" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
   let!(:scope) { create :scope, organization: organization }
-  let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:category) { create :category, participatory_space: participatory_process }
   let!(:status) { create :accountability_status, feature: current_feature, progress: 17 }
   let!(:result_1) { create :accountability_result,
     scope: scope,
@@ -34,7 +34,7 @@ describe Decidim::Accountability::CSVExporter do
     description: { "ca" => "Desc ca", "es" => "Desc es", "en" => "Desc en" }
   }
   let!(:proposal_feature) do
-    create(:feature, manifest_name: "proposals", participatory_process: participatory_process)
+    create(:feature, manifest_name: "proposals", participatory_space: participatory_process)
   end
   let!(:proposals) do
     create_list(

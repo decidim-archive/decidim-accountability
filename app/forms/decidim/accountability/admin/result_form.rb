@@ -45,12 +45,8 @@ module Decidim
           current_organization.scopes
         end
 
-        def process_scope
-          current_feature.participatory_process.scope
-        end
-
         def scope
-          @scope ||= process_scope || organization_scopes.where(id: decidim_scope_id).first
+          @scope ||= organization_scopes.where(id: decidim_scope_id).first
         end
 
         def category

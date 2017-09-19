@@ -51,8 +51,8 @@ module Decidim
               params["result"]["progress"] = status.progress if status.progress.present?
             end
 
-            default_locale = @feature.participatory_process.organization.default_locale
-            available_locales = @feature.participatory_process.organization.available_locales
+            default_locale = @feature.participatory_space.organization.default_locale
+            available_locales = @feature.participatory_space.organization.available_locales
 
             available_locales.each do |locale|
               params["result"]["title_#{locale}"] = params["result"]["title_#{default_locale}"] if params["result"]["title_#{locale}"].blank?

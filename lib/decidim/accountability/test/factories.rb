@@ -5,9 +5,9 @@ require "decidim/dev"
 
 FactoryGirl.define do
   factory :accountability_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :accountability).i18n_name }
+    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
     manifest_name :accountability
-    participatory_process { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
 
   factory :accountability_template_texts, class: Decidim::Accountability::TemplateTexts do

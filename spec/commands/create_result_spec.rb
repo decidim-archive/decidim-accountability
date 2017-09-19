@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Accountability::Admin::CreateResult do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_process: participatory_process }
+  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_space: participatory_process }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
 
   let(:start_date) { Date.yesterday }
   let(:end_date) { Date.tomorrow }
@@ -16,7 +16,7 @@ describe Decidim::Accountability::Admin::CreateResult do
   let(:external_id) { "ID_in_other_system" }
 
   let(:meeting_feature) do
-    create(:feature, manifest_name: "meetings", participatory_process: participatory_process)
+    create(:feature, manifest_name: "meetings", participatory_space: participatory_process)
   end
   let(:meeting) do
     create(
@@ -25,7 +25,7 @@ describe Decidim::Accountability::Admin::CreateResult do
     )
   end
   let(:proposal_feature) do
-    create(:feature, manifest_name: "proposals", participatory_process: participatory_process)
+    create(:feature, manifest_name: "proposals", participatory_space: participatory_process)
   end
   let(:proposals) do
     create_list(

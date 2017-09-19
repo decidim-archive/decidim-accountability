@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Accountability::Admin::UpdateTemplateTexts do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_process: participatory_process }
+  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_space: participatory_process }
 
   let(:template_texts) { create :accountability_template_texts, feature: current_feature }
 

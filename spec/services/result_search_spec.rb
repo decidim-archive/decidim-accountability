@@ -6,7 +6,8 @@ describe Decidim::Accountability::ResultSearch do
   let(:current_feature) { create :feature, manifest_name: "accountability" }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
-  let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
+  let(:participatory_space) { current_feature.participatory_space }
+  let(:parent_category) { create :category, participatory_space: participatory_space }
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:result1) do
     create(

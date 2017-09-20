@@ -33,7 +33,7 @@ Decidim.register_feature(:accountability) do |feature|
         name: Decidim::Features::Namer.new(process.organization.available_locales, :accountability).i18n_name,
         manifest_name: :accountability,
         published_at: Time.current,
-        participatory_process: process
+        participatory_space: process
       )
 
       5.times do |i|
